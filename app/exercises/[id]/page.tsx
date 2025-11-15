@@ -123,7 +123,7 @@ export default function ExerciseDetailPage({ params }: { params: { id: string } 
         <div className="space-y-4">
           <h2 className="text-2xl font-semibold text-foreground">How to Practice</h2>
           <div className="space-y-3">
-            {exercise.instructions.map((instruction, idx) => (
+            {exercise.instructions.map((instruction: string, idx: number) => (
               <div key={idx} className="p-6 rounded-[24px] bg-white border border-warm-beige/20 shadow-soft flex gap-4">
                 <div className="w-8 h-8 rounded-full bg-warm-teal/20 flex items-center justify-center flex-shrink-0">
                   <p className="text-sm font-semibold text-warm-teal">{idx + 1}</p>
@@ -138,7 +138,7 @@ export default function ExerciseDetailPage({ params }: { params: { id: string } 
         <div className="space-y-4">
           <h2 className="text-2xl font-semibold text-foreground">Benefits</h2>
           <div className="grid grid-cols-2 gap-4">
-            {exercise.benefits.map((benefit, idx) => (
+            {exercise.benefits.map((benefit: string, idx: number) => (
               <div key={idx} className="p-6 rounded-[24px] bg-white border border-warm-beige/20 shadow-soft flex items-center gap-3">
                 <Info className="w-5 h-5 text-warm-teal flex-shrink-0" />
                 <p className="text-foreground">{benefit}</p>
