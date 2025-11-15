@@ -1,5 +1,6 @@
 'use client'
 
+import { useRouter } from 'next/navigation'
 import { Sun } from 'lucide-react'
 import { useState } from 'react'
 
@@ -12,6 +13,7 @@ const moodOptions = [
 
 export default function MoodCard() {
   const [selectedMood, setSelectedMood] = useState<string | null>(null)
+  const router = useRouter()
 
   return (
     <div className="group rounded-[28px] bg-gradient-to-br from-warm-yellow/25 via-warm-yellow/10 to-transparent p-8 border border-warm-yellow/20 shadow-soft hover:shadow-soft-lg transition-all duration-300 hover:border-warm-yellow/30">
@@ -42,9 +44,17 @@ export default function MoodCard() {
         ))}
       </div>
 
-      <button className="w-full mt-6 py-3 rounded-full bg-warm-yellow/30 text-foreground font-medium text-sm hover:bg-warm-yellow/40 transition-colors">
-        Log Mood
-      </button>
+      <div className="flex gap-3 mt-6">
+        <button className="flex-1 py-3 rounded-full bg-warm-yellow/30 text-foreground font-medium text-sm hover:bg-warm-yellow/40 transition-colors">
+          Log Mood
+        </button>
+        <button
+          onClick={() => router.push('/mood')}
+          className="flex-1 py-3 rounded-full bg-white/40 text-foreground font-medium text-sm hover:bg-white/60 transition-colors"
+        >
+          View History
+        </button>
+      </div>
     </div>
   )
 }

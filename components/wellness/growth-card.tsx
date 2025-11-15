@@ -1,5 +1,6 @@
 'use client'
 
+import { useRouter } from 'next/navigation'
 import { Zap } from 'lucide-react'
 
 const insights = [
@@ -21,6 +22,8 @@ const insights = [
 ]
 
 export default function GrowthCard() {
+  const router = useRouter()
+
   return (
     <div className="group rounded-[28px] bg-gradient-to-br from-warm-teal/20 via-warm-teal/8 to-transparent p-8 border border-warm-teal/20 shadow-soft hover:shadow-soft-lg transition-all duration-300 hover:border-warm-teal/30">
       {/* Decorative orb */}
@@ -50,7 +53,10 @@ export default function GrowthCard() {
         ))}
       </div>
 
-      <button className="w-full mt-6 py-3 rounded-full bg-warm-teal/30 text-foreground font-medium text-sm hover:bg-warm-teal/40 transition-colors">
+      <button
+        onClick={() => router.push('/profile')}
+        className="w-full mt-6 py-3 rounded-full bg-warm-teal/30 text-foreground font-medium text-sm hover:bg-warm-teal/40 transition-colors"
+      >
         View Full Profile
       </button>
     </div>

@@ -1,5 +1,6 @@
 'use client'
 
+import { useRouter } from 'next/navigation'
 import { Zap, Play } from 'lucide-react'
 import Navbar from '@/components/wellness/navbar'
 
@@ -78,6 +79,12 @@ const exercises: Exercise[] = [
 ]
 
 export default function ExercisesPage() {
+  const router = useRouter()
+
+  const handleExerciseClick = (id: number) => {
+    router.push(`/exercises/${id}`)
+  }
+
   return (
     <main className="min-h-screen bg-gradient-to-br from-cream via-white to-cream-light">
       <Navbar />
@@ -94,6 +101,7 @@ export default function ExercisesPage() {
           {exercises.map((exercise) => (
             <div
               key={exercise.id}
+              onClick={() => handleExerciseClick(exercise.id)}
               className={`p-6 rounded-[28px] bg-gradient-to-br ${exercise.color} border border-warm-beige/20 shadow-soft hover:shadow-soft-lg transition-all cursor-pointer group`}
             >
               <div className="flex justify-between items-start mb-3">
@@ -111,7 +119,9 @@ export default function ExercisesPage() {
 
               <div className="flex items-center justify-between pt-4 border-t border-white/30">
                 <span className="text-xs text-muted-foreground">{exercise.difficulty}</span>
-                <button className="p-2 rounded-full bg-white/50 text-foreground hover:bg-white transition-colors">
+                <button onClick={(e) => {
+                  e.stopPropagation()
+                }} className="p-2 rounded-full bg-white/50 text-foreground hover:bg-white transition-colors">
                   <Play className="w-4 h-4" />
                 </button>
               </div>

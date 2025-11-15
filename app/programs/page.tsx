@@ -1,5 +1,6 @@
 'use client'
 
+import { useRouter } from 'next/navigation'
 import { Sparkles, Clock, Users } from 'lucide-react'
 import Navbar from '@/components/wellness/navbar'
 
@@ -58,6 +59,12 @@ const programs: Program[] = [
 ]
 
 export default function ProgramsPage() {
+  const router = useRouter()
+
+  const handleProgramClick = (id: number) => {
+    router.push(`/programs/${id}`)
+  }
+
   return (
     <main className="min-h-screen bg-gradient-to-br from-cream via-white to-cream-light">
       <Navbar />
@@ -74,6 +81,7 @@ export default function ProgramsPage() {
           {programs.map((program) => (
             <div
               key={program.id}
+              onClick={() => handleProgramClick(program.id)}
               className={`p-8 rounded-[28px] bg-gradient-to-br ${program.color} border border-warm-beige/20 shadow-soft hover:shadow-soft-lg transition-all cursor-pointer group`}
             >
               <div className="flex justify-between items-start mb-4">
@@ -99,7 +107,9 @@ export default function ProgramsPage() {
                     {program.participants.toLocaleString()}
                   </div>
                 </div>
-                <button className="px-4 py-2 rounded-[16px] bg-white/50 text-foreground text-sm font-medium hover:bg-white transition-colors">
+                <button onClick={(e) => {
+                  e.stopPropagation()
+                }} className="px-4 py-2 rounded-[16px] bg-white/50 text-foreground text-sm font-medium hover:bg-white transition-colors">
                   Enroll
                 </button>
               </div>

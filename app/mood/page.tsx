@@ -1,5 +1,6 @@
 'use client'
 
+import { useRouter } from 'next/navigation'
 import { BarChart3, TrendingUp } from 'lucide-react'
 import Navbar from '@/components/wellness/navbar'
 
@@ -21,7 +22,12 @@ const moodHistory: MoodEntry[] = [
 const moodEmojis = ['😔', '😕', '😐', '🙂', '😊', '😄', '😍', '🤩', '🥰', '✨']
 
 export default function MoodPage() {
+  const router = useRouter()
   const avgMood = (moodHistory.reduce((sum, entry) => sum + entry.mood, 0) / moodHistory.length).toFixed(1)
+
+  const handleMoodClick = (index: number) => {
+    router.push(`/mood/${index + 1}`)
+  }
 
   return (
     <main className="min-h-screen bg-gradient-to-br from-cream via-white to-cream-light">
@@ -74,12 +80,13 @@ export default function MoodPage() {
             {moodHistory.map((entry, idx) => (
               <div
                 key={idx}
-                className="p-6 rounded-[24px] bg-white border border-warm-beige/20 shadow-soft hover:shadow-soft-lg transition-shadow"
+                onClick={() => handleMoodClick(idx)}
+                className="p-6 rounded-[24px] bg-white border border-warm-beige/20 shadow-soft hover:shadow-soft-lg transition-all cursor-pointer group"
               >
                 <div className="flex items-center justify-between">
                   <div className="flex-1">
                     <p className="text-sm text-muted-foreground">{entry.date}</p>
-                    <p className="text-foreground font-medium mt-1">{entry.note}</p>
+                    <p className="text-foreground font-medium mt-1 group-hover:text-warm-teal transition-colors">{entry.note}</p>
                   </div>
                   <div className="flex items-center gap-3">
                     <div className="text-right">

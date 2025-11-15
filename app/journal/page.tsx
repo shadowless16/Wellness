@@ -1,5 +1,6 @@
 'use client'
 
+import { useRouter } from 'next/navigation'
 import { BookOpen, Plus, Search } from 'lucide-react'
 import Navbar from '@/components/wellness/navbar'
 import { useState } from 'react'
@@ -42,6 +43,11 @@ const journalEntries: JournalEntry[] = [
 
 export default function JournalPage() {
   const [searchQuery, setSearchQuery] = useState('')
+  const router = useRouter()
+
+  const handleEntryClick = (id: number) => {
+    router.push(`/journal/${id}`)
+  }
 
   const filteredEntries = journalEntries.filter(entry =>
     entry.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -83,6 +89,7 @@ export default function JournalPage() {
             filteredEntries.map((entry) => (
               <div
                 key={entry.id}
+                onClick={() => handleEntryClick(entry.id)}
                 className={`p-6 rounded-[28px] bg-gradient-to-br ${entry.color} border border-warm-beige/20 shadow-soft hover:shadow-soft-lg transition-all cursor-pointer group`}
               >
                 <div className="flex justify-between items-start">
