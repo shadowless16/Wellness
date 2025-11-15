@@ -1,5 +1,6 @@
 'use client'
 
+import React from 'react'
 import { Heart, BarChart3, BookOpen, Sparkles, Zap, Bell, Settings, Music, Users, TrendingUp, BookMarked, Bookmark, Target } from 'lucide-react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
@@ -24,7 +25,7 @@ const navItems: NavItem[] = [
   { name: 'profile', href: '/user/profile', icon: <Settings className="w-5 h-5" />, label: 'Profile' },
 ]
 
-export default function Navbar() {
+function Navbar() {
   const pathname = usePathname()
 
   return (
@@ -33,8 +34,8 @@ export default function Navbar() {
         <div className="flex justify-between items-center">
           {/* Logo and brand */}
           <Link href="/user" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
-            <div className="w-8 h-8 rounded-full bg-gradient-to-br from-warm-teal/30 to-warm-teal/10 flex items-center justify-center">
-              <Heart className="w-4 h-4 text-warm-teal" />
+            <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[oklch(0.65_0.15_130)]/30 to-[oklch(0.70_0.15_50)]/20 flex items-center justify-center">
+              <Heart className="w-4 h-4 text-[oklch(0.65_0.15_130)]" />
             </div>
             <span className="text-sm font-semibold text-foreground">Wellness</span>
           </Link>
@@ -49,8 +50,8 @@ export default function Navbar() {
                   href={item.href}
                   className={`flex items-center gap-2 px-3 py-2 rounded-[20px] transition-all duration-200 whitespace-nowrap ${
                     isActive
-                      ? 'bg-warm-teal/15 text-warm-teal'
-                      : 'text-muted-foreground hover:text-foreground hover:bg-warm-beige/10'
+                      ? 'bg-gradient-to-r from-[oklch(0.65_0.15_130)]/20 to-[oklch(0.70_0.15_50)]/40 text-[oklch(0.65_0.15_130)] border border-[oklch(0.70_0.15_50)]/30'
+                      : 'text-muted-foreground hover:text-foreground hover:bg-gradient-to-r hover:from-[oklch(0.65_0.15_130)]/10 hover:to-[oklch(0.70_0.15_50)]/20 hover:border hover:border-[oklch(0.70_0.15_50)]/20'
                   }`}
                   title={item.label}
                 >
@@ -89,3 +90,5 @@ export default function Navbar() {
     </nav>
   )
 }
+
+export default React.memo(Navbar)

@@ -73,7 +73,7 @@ export default function MeditationPage() {
       <div className="max-w-6xl mx-auto px-4 md:px-6">
         {/* Header */}
         <div className="mb-12">
-          <h1 className="text-4xl font-light text-foreground mb-3">Guided Meditation</h1>
+          <h1 className="text-4xl font-light mb-3 bg-gradient-to-r from-[oklch(0.65_0.15_130)] to-[oklch(0.70_0.15_50)] bg-clip-text text-transparent">Guided Meditation</h1>
           <p className="text-muted-foreground text-lg">Find peace with our collection of guided sessions</p>
         </div>
 
@@ -84,8 +84,8 @@ export default function MeditationPage() {
               key={filter}
               className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
                 filter === 'All'
-                  ? 'bg-warm-teal/15 text-warm-teal'
-                  : 'bg-warm-beige/10 text-muted-foreground hover:bg-warm-beige/20'
+                  ? 'bg-gradient-to-r from-[oklch(0.65_0.15_130)]/15 to-[oklch(0.70_0.15_50)]/10 text-[oklch(0.65_0.15_130)]'
+                  : 'bg-warm-beige/10 text-muted-foreground hover:bg-gradient-to-r hover:from-[oklch(0.65_0.15_130)]/5 hover:to-[oklch(0.70_0.15_50)]/5'
               }`}
             >
               {filter}
@@ -103,7 +103,7 @@ export default function MeditationPage() {
                 
                 {/* Category badge */}
                 <div className="flex items-center justify-between mb-4">
-                  <span className="text-xs font-semibold text-warm-teal uppercase tracking-wide">{meditation.category}</span>
+                  <span className="text-xs font-semibold text-[oklch(0.70_0.15_50)] uppercase tracking-wide">{meditation.category}</span>
                   <div className="flex items-center gap-1 text-muted-foreground text-sm">
                     <Clock className="w-4 h-4" />
                     {meditation.duration}
@@ -122,8 +122,8 @@ export default function MeditationPage() {
                     <Users className="w-4 h-4" />
                     <span>{meditation.instructor}</span>
                   </div>
-                  <div className="w-10 h-10 rounded-full bg-warm-teal/20 flex items-center justify-center hover:bg-warm-teal/30 transition-colors">
-                    <Play className="w-5 h-5 text-warm-teal fill-warm-teal" />
+                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[oklch(0.70_0.15_50)]/40 to-[oklch(0.65_0.15_130)]/25 flex items-center justify-center hover:from-[oklch(0.70_0.15_50)]/60 hover:to-[oklch(0.65_0.15_130)]/40 transition-colors border border-[oklch(0.70_0.15_50)]/30">
+                    <Play className="w-5 h-5 text-[oklch(0.65_0.15_130)] fill-[oklch(0.65_0.15_130)]" />
                   </div>
                 </div>
               </div>

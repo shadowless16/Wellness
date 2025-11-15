@@ -36,7 +36,7 @@ export default function MoodPage() {
       <div className="max-w-7xl mx-auto px-6 py-12 space-y-8">
         {/* Header */}
         <div className="space-y-2">
-          <h1 className="text-4xl font-semibold text-foreground">Mood Tracker</h1>
+          <h1 className="text-4xl font-semibold bg-gradient-to-r from-[oklch(0.65_0.15_130)] to-[oklch(0.70_0.15_50)] bg-clip-text text-transparent">Mood Tracker</h1>
           <p className="text-muted-foreground">Track your emotional wellbeing over time</p>
         </div>
 
@@ -75,7 +75,7 @@ export default function MoodPage() {
 
         {/* Mood history */}
         <div className="space-y-4">
-          <h2 className="text-xl font-semibold text-foreground">Recent Mood Entries</h2>
+          <h2 className="text-xl font-semibold text-[oklch(0.65_0.15_130)]">Recent Mood Entries</h2>
           <div className="space-y-3">
             {moodHistory.map((entry, idx) => (
               <div
@@ -86,14 +86,14 @@ export default function MoodPage() {
                 <div className="flex items-center justify-between">
                   <div className="flex-1">
                     <p className="text-sm text-muted-foreground">{entry.date}</p>
-                    <p className="text-foreground font-medium mt-1 group-hover:text-warm-teal transition-colors">{entry.note}</p>
+                    <p className="text-foreground font-medium mt-1 group-hover:text-[oklch(0.65_0.15_130)] transition-colors">{entry.note}</p>
                   </div>
                   <div className="flex items-center gap-3">
                     <div className="text-right">
                       <p className="text-2xl">{moodEmojis[entry.mood]}</p>
                       <p className="text-xs text-muted-foreground">{entry.mood}/10</p>
                     </div>
-                    <div className="w-1 h-12 rounded-full bg-gradient-to-b from-warm-yellow to-warm-teal opacity-50" />
+                    <div className="w-1 h-12 rounded-full bg-gradient-to-b from-[oklch(0.70_0.15_50)] to-[oklch(0.65_0.15_130)] opacity-50" />
                   </div>
                 </div>
               </div>

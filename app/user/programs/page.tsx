@@ -72,7 +72,7 @@ export default function ProgramsPage() {
       <div className="max-w-6xl mx-auto px-6 py-12 space-y-8">
         {/* Header */}
         <div className="space-y-2">
-          <h1 className="text-4xl font-semibold text-foreground">Wellness Programs</h1>
+          <h1 className="text-4xl font-semibold bg-gradient-to-r from-[oklch(0.65_0.15_130)] to-[oklch(0.70_0.15_50)] bg-clip-text text-transparent">Wellness Programs</h1>
           <p className="text-muted-foreground">Structured journeys to support your mental health and wellbeing</p>
         </div>
 
@@ -91,7 +91,7 @@ export default function ProgramsPage() {
                 </span>
               </div>
 
-              <h3 className="text-xl font-semibold text-foreground mb-2 group-hover:text-warm-teal transition-colors">
+              <h3 className="text-xl font-semibold text-foreground mb-2 group-hover:text-[oklch(0.65_0.15_130)] transition-colors">
                 {program.title}
               </h3>
               <p className="text-sm text-muted-foreground mb-6">{program.description}</p>

@@ -11,15 +11,15 @@ export default function ProfilePage() {
       <div className="max-w-2xl mx-auto px-6 py-12 space-y-8">
         {/* Header */}
         <div className="space-y-2">
-          <h1 className="text-4xl font-semibold text-foreground">Profile Settings</h1>
+          <h1 className="text-4xl font-semibold bg-gradient-to-r from-[oklch(0.65_0.15_130)] to-[oklch(0.70_0.15_50)] bg-clip-text text-transparent">Profile Settings</h1>
           <p className="text-muted-foreground">Manage your account and preferences</p>
         </div>
 
         {/* Profile section */}
         <div className="p-8 rounded-[28px] bg-white border border-warm-beige/20 shadow-soft space-y-6">
           <div className="flex items-center gap-4">
-            <div className="w-16 h-16 rounded-full bg-gradient-to-br from-warm-teal/30 to-warm-teal/10 flex items-center justify-center">
-              <User className="w-8 h-8 text-warm-teal" />
+            <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[oklch(0.65_0.15_130)]/30 to-[oklch(0.70_0.15_50)]/10 flex items-center justify-center">
+              <User className="w-8 h-8 text-[oklch(0.65_0.15_130)]" />
             </div>
             <div className="flex-1">
               <h2 className="text-xl font-semibold text-foreground">Alex Johnson</h2>

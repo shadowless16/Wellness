@@ -20,8 +20,8 @@ export default function CorporateNavbar() {
       <div className="max-w-7xl mx-auto px-6 py-4">
         <div className="flex justify-between items-center">
           <Link href="/corporate" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
-            <div className="w-8 h-8 rounded-full bg-gradient-to-br from-blue-500/30 to-blue-500/10 flex items-center justify-center">
-              <Building2 className="w-4 h-4 text-blue-500" />
+            <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[oklch(0.65_0.15_130)]/30 to-[oklch(0.70_0.15_50)]/10 flex items-center justify-center">
+              <Building2 className="w-4 h-4 text-[oklch(0.65_0.15_130)]" />
             </div>
             <span className="text-sm font-semibold text-foreground">Corporate Wellness</span>
           </Link>
@@ -35,7 +35,7 @@ export default function CorporateNavbar() {
                   href={item.href}
                   className={`flex items-center gap-2 px-3 py-2 rounded-[20px] transition-all duration-200 ${
                     isActive
-                      ? 'bg-blue-500/15 text-blue-500'
+                      ? 'bg-[oklch(0.65_0.15_130)]/15 text-[oklch(0.65_0.15_130)]'
                       : 'text-muted-foreground hover:text-foreground hover:bg-warm-beige/10'
                   }`}
                 >

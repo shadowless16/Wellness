@@ -9,7 +9,7 @@ export default function InsightsPage() {
       <div className="max-w-6xl mx-auto px-4 md:px-6">
         {/* Header */}
         <div className="mb-12">
-          <h1 className="text-4xl font-light text-foreground mb-3">Your Wellness Insights</h1>
+          <h1 className="text-4xl font-light mb-3 bg-gradient-to-r from-[oklch(0.65_0.15_130)] to-[oklch(0.70_0.15_50)] bg-clip-text text-transparent">Your Wellness Insights</h1>
           <p className="text-muted-foreground text-lg">Track your progress and discover patterns in your wellness journey</p>
         </div>
 
@@ -41,7 +41,7 @@ export default function InsightsPage() {
         <div className="grid md:grid-cols-2 gap-6 mb-12">
           {/* Mood over time */}
           <div className="bg-warm-beige/5 rounded-[24px] p-8 border border-warm-beige/20">
-            <h3 className="text-lg font-semibold text-foreground mb-6">Mood Trends</h3>
+            <h3 className="text-lg font-semibold mb-6 text-[oklch(0.65_0.15_130)]">Mood Trends</h3>
             <div className="h-40 bg-gradient-to-b from-warm-teal/10 to-warm-beige/5 rounded-[16px] flex items-end justify-around px-4 gap-2">
               {[4, 6, 5, 7, 6, 8, 7, 8, 7, 8, 9, 8].map((height, i) => (
                 <div key={i} className="flex-grow max-w-2 bg-warm-teal rounded-t-[8px]" style={{ height: `${(height / 10) * 100}%` }}></div>
@@ -52,7 +52,7 @@ export default function InsightsPage() {
 
           {/* Meditation activity */}
           <div className="bg-warm-beige/5 rounded-[24px] p-8 border border-warm-beige/20">
-            <h3 className="text-lg font-semibold text-foreground mb-6">Activity Heatmap</h3>
+            <h3 className="text-lg font-semibold mb-6 text-[oklch(0.65_0.15_130)]">Activity Heatmap</h3>
             <div className="grid grid-cols-7 gap-1">
               {Array(28).fill(0).map((_, i) => (
                 <div
@@ -83,7 +83,7 @@ export default function InsightsPage() {
               <div className="flex items-start gap-4">
                 <div className="text-3xl">{insight.icon}</div>
                 <div>
-                  <h4 className="font-semibold text-foreground mb-1">{insight.title}</h4>
+                  <h4 className="font-semibold mb-1 text-[oklch(0.70_0.15_50)]">{insight.title}</h4>
                   <p className="text-sm text-muted-foreground">{insight.description}</p>
                 </div>
               </div>

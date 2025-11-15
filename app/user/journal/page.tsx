@@ -62,10 +62,10 @@ export default function JournalPage() {
         {/* Header with CTA */}
         <div className="flex justify-between items-start">
           <div className="space-y-2">
-            <h1 className="text-4xl font-semibold text-foreground">Journal</h1>
+            <h1 className="text-4xl font-semibold bg-gradient-to-r from-[oklch(0.65_0.15_130)] to-[oklch(0.70_0.15_50)] bg-clip-text text-transparent">Journal</h1>
             <p className="text-muted-foreground">Reflect, write, and grow</p>
           </div>
-          <button className="px-6 py-3 rounded-[24px] bg-warm-teal text-white font-medium flex items-center gap-2 hover:opacity-90 transition-opacity shadow-soft">
+          <button className="px-6 py-3 rounded-[24px] bg-gradient-to-r from-[oklch(0.70_0.15_50)] to-[oklch(0.65_0.15_130)] text-white font-medium flex items-center gap-2 hover:opacity-90 transition-opacity shadow-soft border-2 border-[oklch(0.70_0.15_50)]/50">
             <Plus className="w-4 h-4" />
             New Entry
           </button>
@@ -79,7 +79,7 @@ export default function JournalPage() {
             placeholder="Search your thoughts..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-12 pr-4 py-3 rounded-[24px] bg-white border border-warm-beige/20 text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-warm-teal/30"
+            className="w-full pl-12 pr-4 py-3 rounded-[24px] bg-white border border-warm-beige/20 text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-[oklch(0.65_0.15_130)]/30"
           />
         </div>
 
@@ -95,7 +95,7 @@ export default function JournalPage() {
                 <div className="flex justify-between items-start">
                   <div className="flex-1">
                     <p className="text-xs text-muted-foreground">{entry.date}</p>
-                    <h3 className="text-lg font-semibold text-foreground mt-2 group-hover:text-warm-teal transition-colors">
+                    <h3 className="text-lg font-semibold text-foreground mt-2 group-hover:text-[oklch(0.65_0.15_130)] transition-colors">
                       {entry.title}
                     </h3>
                     <p className="text-sm text-muted-foreground mt-3 line-clamp-2">{entry.excerpt}</p>

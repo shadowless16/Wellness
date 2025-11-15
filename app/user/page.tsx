@@ -2,7 +2,6 @@
 
 import { useRouter } from 'next/navigation'
 import { Heart, AlertCircle, ArrowRight, Sparkles, Activity, BookOpen, Zap } from 'lucide-react'
-import Navbar from '@/components/user/wellness/navbar'
 import WelcomeHeader from '@/components/user/wellness/welcome-header'
 import EmergencyCard from '@/components/user/wellness/emergency-card'
 import MoodCard from '@/components/user/wellness/mood-card'
@@ -52,8 +51,6 @@ export default function WellnessDashboard() {
 
   return (
     <main className="min-h-screen bg-gradient-to-br from-cream via-white to-cream-light">
-      <Navbar />
-
       {/* Main content */}
       <div className="max-w-7xl mx-auto px-6 py-12 space-y-8">
         {/* Welcome header */}
@@ -70,7 +67,7 @@ export default function WellnessDashboard() {
 
         <div className="space-y-4 pt-4">
           <div className="flex items-center justify-between">
-            <h2 className="text-2xl font-semibold text-foreground">Quick Access</h2>
+            <h2 className="text-2xl font-semibold bg-gradient-to-r from-[oklch(0.70_0.15_50)] to-[oklch(0.65_0.15_130)] bg-clip-text text-transparent">Quick Access</h2>
             <span className="text-xs text-muted-foreground">Explore features</span>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -82,9 +79,9 @@ export default function WellnessDashboard() {
               >
                 <div className="flex items-start justify-between mb-3">
                   <div className="text-3xl">{card.icon}</div>
-                  <ArrowRight className="w-4 h-4 text-muted-foreground group-hover:text-warm-teal transition-colors opacity-0 group-hover:opacity-100" />
+                  <ArrowRight className="w-4 h-4 text-muted-foreground group-hover:text-[oklch(0.70_0.15_50)] transition-colors opacity-0 group-hover:opacity-100" />
                 </div>
-                <h3 className="font-semibold text-foreground group-hover:text-warm-teal transition-colors">{card.title}</h3>
+                <h3 className="font-semibold text-foreground group-hover:text-[oklch(0.70_0.15_50)] transition-colors">{card.title}</h3>
                 <p className="text-xs text-muted-foreground mt-1">{card.description}</p>
               </button>
             ))}
@@ -92,12 +89,12 @@ export default function WellnessDashboard() {
         </div>
 
         <div className="space-y-4 pt-4">
-          <h2 className="text-2xl font-semibold text-foreground">Your Week at a Glance</h2>
+          <h2 className="text-2xl font-semibold bg-gradient-to-r from-[oklch(0.70_0.15_50)] to-[oklch(0.65_0.15_130)] bg-clip-text text-transparent">Your Week at a Glance</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div className="p-6 rounded-[24px] bg-white border border-warm-beige/20 shadow-soft hover:shadow-soft-lg transition-shadow">
               <div className="flex items-center justify-between mb-2">
                 <p className="text-sm text-muted-foreground">Exercises Completed</p>
-                <Activity className="w-5 h-5 text-warm-teal" />
+                <Activity className="w-5 h-5 text-[oklch(0.70_0.15_50)]" />
               </div>
               <p className="text-3xl font-semibold text-foreground">8</p>
               <p className="text-xs text-muted-foreground mt-2">+2 from last week</p>
@@ -115,7 +112,7 @@ export default function WellnessDashboard() {
             <div className="p-6 rounded-[24px] bg-white border border-warm-beige/20 shadow-soft hover:shadow-soft-lg transition-shadow">
               <div className="flex items-center justify-between mb-2">
                 <p className="text-sm text-muted-foreground">Wellness Streak</p>
-                <Sparkles className="w-5 h-5 text-warm-emergency" />
+                <Sparkles className="w-5 h-5 text-[oklch(0.70_0.15_50)]" />
               </div>
               <p className="text-3xl font-semibold text-foreground">12</p>
               <p className="text-xs text-muted-foreground mt-2">Days of commitment</p>
@@ -124,30 +121,30 @@ export default function WellnessDashboard() {
         </div>
 
         <div className="space-y-4 pt-4">
-          <h2 className="text-2xl font-semibold text-foreground">Recommended for You</h2>
+          <h2 className="text-2xl font-semibold bg-gradient-to-r from-[oklch(0.70_0.15_50)] to-[oklch(0.65_0.15_130)] bg-clip-text text-transparent">Recommended for You</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="p-6 rounded-[24px] bg-gradient-to-br from-warm-teal/20 to-warm-teal/5 border border-warm-teal/20 shadow-soft hover:shadow-soft-lg transition-all cursor-pointer group">
               <div className="flex items-start justify-between mb-3">
                 <div>
                   <p className="text-sm text-muted-foreground">Try this exercise</p>
-                  <h3 className="font-semibold text-foreground mt-1 group-hover:text-warm-teal transition-colors">5-Minute Breathing</h3>
+                  <h3 className="font-semibold text-foreground mt-1 group-hover:text-[oklch(0.70_0.15_50)] transition-colors">5-Minute Breathing</h3>
                   <p className="text-xs text-muted-foreground mt-2">Quick reset for your nervous system</p>
                 </div>
                 <span className="text-2xl">💨</span>
               </div>
-              <button className="text-xs font-medium text-warm-teal hover:opacity-75 transition-opacity">Start Now →</button>
+              <button className="text-xs font-medium text-[oklch(0.70_0.15_50)] hover:opacity-75 transition-opacity bg-gradient-to-r from-[oklch(0.70_0.15_50)]/20 to-[oklch(0.65_0.15_130)]/10 px-3 py-1 rounded-full border border-[oklch(0.70_0.15_50)]/30">Start Now →</button>
             </div>
 
             <div className="p-6 rounded-[24px] bg-gradient-to-br from-warm-yellow/20 to-warm-yellow/5 border border-warm-yellow/20 shadow-soft hover:shadow-soft-lg transition-all cursor-pointer group">
               <div className="flex items-start justify-between mb-3">
                 <div>
                   <p className="text-sm text-muted-foreground">Enroll in program</p>
-                  <h3 className="font-semibold text-foreground mt-1 group-hover:text-warm-yellow transition-colors">Mindfulness for Beginners</h3>
+                  <h3 className="font-semibold text-foreground mt-1 group-hover:text-[oklch(0.70_0.15_50)] transition-colors">Mindfulness for Beginners</h3>
                   <p className="text-xs text-muted-foreground mt-2">4 weeks • 2314 people enrolled</p>
                 </div>
                 <span className="text-2xl">🧘</span>
               </div>
-              <button className="text-xs font-medium text-warm-yellow hover:opacity-75 transition-opacity">Explore →</button>
+              <button className="text-xs font-medium text-[oklch(0.70_0.15_50)] hover:opacity-75 transition-opacity bg-gradient-to-r from-[oklch(0.70_0.15_50)]/20 to-[oklch(0.65_0.15_130)]/10 px-3 py-1 rounded-full border border-[oklch(0.70_0.15_50)]/30">Explore →</button>
             </div>
           </div>
         </div>

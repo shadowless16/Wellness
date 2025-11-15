@@ -20,8 +20,8 @@ export default function AdminNavbar() {
       <div className="max-w-7xl mx-auto px-6 py-4">
         <div className="flex justify-between items-center">
           <Link href="/admin" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
-            <div className="w-8 h-8 rounded-full bg-gradient-to-br from-red-500/30 to-red-500/10 flex items-center justify-center">
-              <Shield className="w-4 h-4 text-red-500" />
+            <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[oklch(0.70_0.15_50)]/30 to-[oklch(0.65_0.15_130)]/10 flex items-center justify-center">
+              <Shield className="w-4 h-4 text-[oklch(0.70_0.15_50)]" />
             </div>
             <span className="text-sm font-semibold text-foreground">Wellness Admin</span>
           </Link>
@@ -35,7 +35,7 @@ export default function AdminNavbar() {
                   href={item.href}
                   className={`flex items-center gap-2 px-3 py-2 rounded-[20px] transition-all duration-200 ${
                     isActive
-                      ? 'bg-red-500/15 text-red-500'
+                      ? 'bg-[oklch(0.70_0.15_50)]/15 text-[oklch(0.70_0.15_50)]'
                       : 'text-muted-foreground hover:text-foreground hover:bg-warm-beige/10'
                   }`}
                 >

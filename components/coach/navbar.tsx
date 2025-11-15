@@ -20,8 +20,8 @@ export default function CoachNavbar() {
       <div className="max-w-7xl mx-auto px-6 py-4">
         <div className="flex justify-between items-center">
           <Link href="/coach" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
-            <div className="w-8 h-8 rounded-full bg-gradient-to-br from-warm-teal/30 to-warm-teal/10 flex items-center justify-center">
-              <Heart className="w-4 h-4 text-warm-teal" />
+            <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[oklch(0.65_0.15_130)]/30 to-[oklch(0.70_0.15_50)]/10 flex items-center justify-center">
+              <Heart className="w-4 h-4 text-[oklch(0.65_0.15_130)]" />
             </div>
             <span className="text-sm font-semibold text-foreground">Wellness Coach</span>
           </Link>
@@ -35,7 +35,7 @@ export default function CoachNavbar() {
                   href={item.href}
                   className={`flex items-center gap-2 px-3 py-2 rounded-[20px] transition-all duration-200 ${
                     isActive
-                      ? 'bg-warm-teal/15 text-warm-teal'
+                      ? 'bg-[oklch(0.65_0.15_130)]/15 text-[oklch(0.65_0.15_130)]'
                       : 'text-muted-foreground hover:text-foreground hover:bg-warm-beige/10'
                   }`}
                 >

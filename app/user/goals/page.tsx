@@ -58,9 +58,9 @@ export default function ChallengeDetailPage({ params }: { params: { id: string }
             {/* Title */}
             <div className="mb-8">
               <div className="flex items-center gap-2 mb-3">
-                <span className="text-xs font-semibold uppercase tracking-wide text-warm-teal">{challenge.difficulty} • {challenge.dailyCommitment}</span>
+                <span className="text-xs font-semibold uppercase tracking-wide text-[oklch(0.70_0.15_50)]">{challenge.difficulty} • {challenge.dailyCommitment}</span>
               </div>
-              <h1 className="text-4xl font-light text-foreground mb-3">{challenge.title}</h1>
+              <h1 className="text-4xl font-light mb-3 bg-gradient-to-r from-[oklch(0.65_0.15_130)] to-[oklch(0.70_0.15_50)] bg-clip-text text-transparent">{challenge.title}</h1>
               <p className="text-lg text-muted-foreground">{challenge.fullDescription}</p>
             </div>
 
@@ -82,7 +82,7 @@ export default function ChallengeDetailPage({ params }: { params: { id: string }
 
             {/* Daily breakdown */}
             <div>
-              <h2 className="text-xl font-semibold text-foreground mb-6">Daily Sessions</h2>
+              <h2 className="text-xl font-semibold mb-6 text-[oklch(0.65_0.15_130)]">Daily Sessions</h2>
               <div className="space-y-3">
                 {challenge.days.map((dayItem: any, i: number) => (
                   <div

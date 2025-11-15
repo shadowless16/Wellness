@@ -92,7 +92,7 @@ export default function ExercisesPage() {
       <div className="max-w-6xl mx-auto px-6 py-12 space-y-8">
         {/* Header */}
         <div className="space-y-2">
-          <h1 className="text-4xl font-semibold text-foreground">Guided Exercises</h1>
+          <h1 className="text-4xl font-semibold bg-gradient-to-r from-[oklch(0.65_0.15_130)] to-[oklch(0.70_0.15_50)] bg-clip-text text-transparent">Guided Exercises</h1>
           <p className="text-muted-foreground">Short, therapeutic practices for any moment of your day</p>
         </div>
 
@@ -111,7 +111,7 @@ export default function ExercisesPage() {
                 </span>
               </div>
 
-              <h3 className="text-lg font-semibold text-foreground mb-1 group-hover:text-warm-teal transition-colors">
+              <h3 className="text-lg font-semibold text-foreground mb-1 group-hover:text-[oklch(0.65_0.15_130)] transition-colors">
                 {exercise.title}
               </h3>
               <p className="text-xs text-muted-foreground mb-3">{exercise.type}</p>

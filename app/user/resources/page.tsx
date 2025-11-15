@@ -79,7 +79,7 @@ export default function ResourcesPage() {
       <div className="max-w-6xl mx-auto px-4 md:px-6">
         {/* Header */}
         <div className="mb-12">
-          <h1 className="text-4xl font-light text-foreground mb-3">Learning Resources</h1>
+          <h1 className="text-4xl font-light mb-3 bg-gradient-to-r from-[oklch(0.65_0.15_130)] to-[oklch(0.70_0.15_50)] bg-clip-text text-transparent">Learning Resources</h1>
           <p className="text-muted-foreground text-lg">Deepen your knowledge with articles, podcasts, and educational materials</p>
         </div>
 
@@ -90,8 +90,8 @@ export default function ResourcesPage() {
               key={filter}
               className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
                 filter === 'All'
-                  ? 'bg-warm-teal/15 text-warm-teal'
-                  : 'bg-warm-beige/10 text-muted-foreground hover:bg-warm-beige/20'
+                  ? 'bg-gradient-to-r from-[oklch(0.65_0.15_130)]/15 to-[oklch(0.70_0.15_50)]/10 text-[oklch(0.65_0.15_130)]'
+                  : 'bg-warm-beige/10 text-muted-foreground hover:bg-gradient-to-r hover:from-[oklch(0.65_0.15_130)]/5 hover:to-[oklch(0.70_0.15_50)]/5'
               }`}
             >
               {filter}
@@ -107,7 +107,7 @@ export default function ResourcesPage() {
               <Link key={resource.id} href={`/resources/${resource.id}`}>
                 <div className={`${resource.bgColor} rounded-[24px] p-6 cursor-pointer transition-all hover:shadow-lg hover:scale-105 duration-300 border border-warm-beige/20 h-full flex flex-col`}>
                   <div className="flex items-start justify-between mb-4">
-                    <span className="text-xs font-semibold text-warm-teal uppercase tracking-wide">{resource.type}</span>
+                    <span className="text-xs font-semibold text-[oklch(0.70_0.15_50)] uppercase tracking-wide">{resource.type}</span>
                     <Icon className="w-5 h-5 text-muted-foreground opacity-50" />
                   </div>
 
@@ -116,7 +116,7 @@ export default function ResourcesPage() {
 
                   <div className="pt-4 border-t border-warm-beige/20">
                     <p className="text-xs text-muted-foreground mb-1">{resource.author}</p>
-                    <p className="text-xs font-medium text-warm-teal">{resource.readTime}</p>
+                    <p className="text-xs font-medium text-[oklch(0.65_0.15_130)]">{resource.readTime}</p>
                   </div>
                 </div>
               </Link>

@@ -85,13 +85,13 @@ export default function CommunityPage() {
       <div className="max-w-2xl mx-auto px-4 md:px-6">
         {/* Header */}
         <div className="mb-12">
-          <h1 className="text-4xl font-light text-foreground mb-3">Community Wisdom</h1>
+          <h1 className="text-4xl font-light mb-3 bg-gradient-to-r from-[oklch(0.65_0.15_130)] to-[oklch(0.70_0.15_50)] bg-clip-text text-transparent">Community Wisdom</h1>
           <p className="text-muted-foreground text-lg">Share experiences, find inspiration, and support each other</p>
         </div>
 
         {/* Create post button */}
         <div className="mb-8">
-          <button className="w-full bg-warm-teal/15 hover:bg-warm-teal/25 border border-warm-teal/20 text-foreground font-semibold py-4 rounded-[24px] transition-all">
+          <button className="w-full bg-gradient-to-r from-[oklch(0.70_0.15_50)]/25 to-[oklch(0.65_0.15_130)]/15 hover:from-[oklch(0.70_0.15_50)]/40 hover:to-[oklch(0.65_0.15_130)]/25 border-2 border-[oklch(0.70_0.15_50)]/40 text-foreground font-semibold py-4 rounded-[24px] transition-all">
             Share Your Story
           </button>
         </div>
@@ -103,8 +103,8 @@ export default function CommunityPage() {
               key={cat}
               className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
                 cat === 'All'
-                  ? 'bg-warm-teal/15 text-warm-teal'
-                  : 'bg-warm-beige/10 text-muted-foreground hover:bg-warm-beige/20'
+                  ? 'bg-gradient-to-r from-[oklch(0.70_0.15_50)]/30 to-[oklch(0.65_0.15_130)]/20 text-[oklch(0.65_0.15_130)] border border-[oklch(0.70_0.15_50)]/40'
+                  : 'bg-warm-beige/10 text-muted-foreground hover:bg-gradient-to-r hover:from-[oklch(0.70_0.15_50)]/20 hover:to-[oklch(0.65_0.15_130)]/10 hover:border hover:border-[oklch(0.70_0.15_50)]/30'
               }`}
             >
               {cat}
@@ -120,7 +120,7 @@ export default function CommunityPage() {
                 {/* Header */}
                 <div className="flex items-start justify-between mb-4">
                   <div className="flex gap-3 flex-grow">
-                    <div className="w-10 h-10 rounded-full bg-warm-teal/20 flex items-center justify-center text-sm font-semibold text-warm-teal flex-shrink-0">
+                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[oklch(0.70_0.15_50)]/40 to-[oklch(0.65_0.15_130)]/25 flex items-center justify-center text-sm font-semibold text-[oklch(0.65_0.15_130)] flex-shrink-0 border border-[oklch(0.70_0.15_50)]/30">
                       {post.avatar}
                     </div>
                     <div className="flex-grow">
@@ -128,7 +128,7 @@ export default function CommunityPage() {
                       <p className="text-xs text-muted-foreground">{post.timeAgo}</p>
                     </div>
                   </div>
-                  <span className="text-xs font-semibold text-warm-teal uppercase tracking-wide">{post.category}</span>
+                  <span className="text-xs font-semibold text-[oklch(0.70_0.15_50)] uppercase tracking-wide">{post.category}</span>
                 </div>
 
                 {/* Content */}
