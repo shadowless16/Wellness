@@ -46,8 +46,9 @@ const exercisesData: { [key: string]: any } = {
   }
 }
 
-export default function ExerciseDetailPage({ params }: { params: { id: string } }) {
-  const exercise = exercisesData[params.id] || exercisesData['1']
+export default async function ExerciseDetailPage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params
+  const exercise = exercisesData[id] || exercisesData['1']
   const [isPlaying, setIsPlaying] = useState(false)
   const [progress, setProgress] = useState(0)
 

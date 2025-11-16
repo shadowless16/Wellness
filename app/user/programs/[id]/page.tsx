@@ -21,7 +21,8 @@ let courseModules: Module[] = [
   { id: 5, title: 'Daily Practice Guide', type: 'microlearning', duration: '5 min', completed: false, locked: false }
 ]
 
-export default function CoursePage({ params }: { params: { id: string } }) {
+export default async function CoursePage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params
   const [currentModule, setCurrentModule] = useState(3)
   const [isPlaying, setIsPlaying] = useState(false)
   const [showReflection, setShowReflection] = useState(false)
@@ -122,7 +123,7 @@ export default function CoursePage({ params }: { params: { id: string } }) {
                 <div className="flex gap-2">
                   {currentModule === courseModules.length ? (
                     <button 
-                      onClick={() => router.push(`/user/programs/${params.id}/completion`)}
+                      onClick={() => router.push(`/user/programs/${id}/completion`)}
                       className="px-4 py-2 bg-gradient-to-r from-[oklch(0.70_0.15_50)] to-[oklch(0.65_0.15_130)] text-white rounded-[12px] hover:opacity-90 transition-opacity"
                     >
                       Complete Course

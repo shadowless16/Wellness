@@ -82,8 +82,9 @@ const meditations: Record<string, any> = {
   }
 }
 
-export default function MeditationDetailPage({ params }: { params: { id: string } }) {
-  const meditation = meditations[params.id] || meditations['1']
+export default async function MeditationDetailPage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params
+  const meditation = meditations[id] || meditations['1']
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-white/80 to-warm-beige/5">

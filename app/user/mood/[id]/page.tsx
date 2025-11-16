@@ -36,8 +36,9 @@ const moodData: { [key: string]: MoodDetail } = {
   },
 }
 
-export default function MoodDetailPage({ params }: { params: { id: string } }) {
-  const mood = moodData[params.id] || moodData['1']
+export default async function MoodDetailPage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params
+  const mood = moodData[id] || moodData['1']
   const moodPercentage = (mood.mood / 10) * 100
 
   return (

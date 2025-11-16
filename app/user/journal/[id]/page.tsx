@@ -28,8 +28,9 @@ I often chase big moments and achievements, but today reminded me that life\'s r
   }
 }
 
-export default function JournalDetailPage({ params }: { params: { id: string } }) {
-  const entry = journalEntries[params.id] || journalEntries['1']
+export default async function JournalDetailPage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params
+  const entry = journalEntries[id] || journalEntries['1']
 
   return (
     <main className="min-h-screen bg-gradient-to-br from-cream via-white to-cream-light">

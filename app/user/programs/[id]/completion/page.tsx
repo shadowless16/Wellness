@@ -27,7 +27,8 @@ const quizQuestions = [
   }
 ]
 
-export default function CourseCompletionPage({ params }: { params: { id: string } }) {
+export default async function CourseCompletionPage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params
   const [currentStep, setCurrentStep] = useState(1) // 1: quiz, 2: certificate
   const [answers, setAnswers] = useState<Record<number, string>>({})
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -80,7 +81,7 @@ export default function CourseCompletionPage({ params }: { params: { id: string 
               </div>
               <div>
                 <p className="font-medium">Certificate ID</p>
-                <p>WB-{params.id}-{Date.now().toString().slice(-6)}</p>
+                <p>WB-{id}-{Date.now().toString().slice(-6)}</p>
               </div>
             </div>
 

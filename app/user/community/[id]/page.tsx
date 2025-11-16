@@ -15,8 +15,9 @@ const communityPosts: Record<string, any> = {
   },
 }
 
-export default function CommunityPostPage({ params }: { params: { id: string } }) {
-  const post = communityPosts[params.id] || communityPosts['1']
+export default async function CommunityPostPage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params
+  const post = communityPosts[id] || communityPosts['1']
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-white/80 to-warm-beige/5">

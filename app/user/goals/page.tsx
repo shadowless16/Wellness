@@ -29,8 +29,9 @@ const challenges: Record<string, any> = {
   },
 }
 
-export default function ChallengeDetailPage({ params }: { params: { id: string } }) {
-  const challenge = challenges[params.id] || challenges['1']
+export default async function ChallengeDetailPage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params
+  const challenge = challenges[id] || challenges['1']
   const completedDays = challenge.days.filter((d: any) => d.completed).length
 
   return (
