@@ -2,7 +2,6 @@
 
 import Link from 'next/link'
 import { Bookmark, Trash2 } from 'lucide-react'
-import Navbar from '@/components/user/wellness/navbar'
 
 const savedItems = [
   {
@@ -64,7 +63,6 @@ const savedItems = [
 export default function SavedPage() {
   return (
     <main className="min-h-screen bg-gradient-to-b from-white/80 to-warm-beige/5">
-      <Navbar />
       <div className="pt-8 pb-16">
       <div className="max-w-4xl mx-auto px-4 md:px-6">
         {/* Header */}
@@ -92,7 +90,7 @@ export default function SavedPage() {
         {/* Saved items */}
         <div className="space-y-4">
           {savedItems.map((item) => (
-            <Link key={item.id} href={`/${item.type.toLowerCase().replace(' ', '-')}/${item.id}`}>
+            <Link key={item.id} href={`/user/${item.type.toLowerCase().replace(' ', '-')}/${item.id}`}>
               <div className={`${item.bgColor} rounded-[24px] p-6 cursor-pointer transition-all hover:shadow-lg hover:scale-102 duration-300 border border-warm-beige/20 flex items-center justify-between group`}>
                 <div className="flex items-start gap-4 flex-grow">
                   <div className="text-3xl flex-shrink-0">{item.icon}</div>

@@ -2,7 +2,6 @@
 
 import { useRouter } from 'next/navigation'
 import { Zap, Play } from 'lucide-react'
-import Navbar from '@/components/user/wellness/navbar'
 
 interface Exercise {
   id: number
@@ -82,13 +81,11 @@ export default function ExercisesPage() {
   const router = useRouter()
 
   const handleExerciseClick = (id: number) => {
-    router.push(`/exercises/${id}`)
+    router.push(`/user/exercises/${id}`)
   }
 
   return (
     <main className="min-h-screen bg-gradient-to-br from-cream via-white to-cream-light">
-      <Navbar />
-
       <div className="max-w-6xl mx-auto px-6 py-12 space-y-8">
         {/* Header */}
         <div className="space-y-2">

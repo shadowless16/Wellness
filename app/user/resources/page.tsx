@@ -1,6 +1,5 @@
 import Link from 'next/link'
 import { BookOpen, Headphones, LinkIcon, Award } from 'lucide-react'
-import Navbar from '@/components/user/wellness/navbar'
 
 const resources = [
   {
@@ -74,7 +73,6 @@ const resources = [
 export default function ResourcesPage() {
   return (
     <main className="min-h-screen bg-gradient-to-b from-white/80 to-warm-beige/5">
-      <Navbar />
       <div className="pt-8 pb-16">
       <div className="max-w-6xl mx-auto px-4 md:px-6">
         {/* Header */}
@@ -104,7 +102,7 @@ export default function ResourcesPage() {
           {resources.map((resource) => {
             const Icon = resource.icon
             return (
-              <Link key={resource.id} href={`/resources/${resource.id}`}>
+              <Link key={resource.id} href={`/user/resources/${resource.id}`}>
                 <div className={`${resource.bgColor} rounded-[24px] p-6 cursor-pointer transition-all hover:shadow-lg hover:scale-105 duration-300 border border-warm-beige/20 h-full flex flex-col`}>
                   <div className="flex items-start justify-between mb-4">
                     <span className="text-xs font-semibold text-[oklch(0.70_0.15_50)] uppercase tracking-wide">{resource.type}</span>

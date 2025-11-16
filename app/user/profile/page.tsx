@@ -1,12 +1,10 @@
 'use client'
 
 import { User, Bell, Lock, LogOut, Edit2 } from 'lucide-react'
-import Navbar from '@/components/user/wellness/navbar'
 
 export default function ProfilePage() {
   return (
     <main className="min-h-screen bg-gradient-to-br from-cream via-white to-cream-light">
-      <Navbar />
 
       <div className="max-w-2xl mx-auto px-6 py-12 space-y-8">
         {/* Header */}

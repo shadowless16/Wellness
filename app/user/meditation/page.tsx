@@ -1,6 +1,5 @@
 import Link from 'next/link'
 import { Play, Clock, Volume2, Users } from 'lucide-react'
-import Navbar from '@/components/user/wellness/navbar'
 
 const meditations = [
   {
@@ -68,7 +67,6 @@ const meditations = [
 export default function MeditationPage() {
   return (
     <main className="min-h-screen bg-gradient-to-b from-white/80 to-warm-beige/5">
-      <Navbar />
       <div className="pt-8 pb-16">
       <div className="max-w-6xl mx-auto px-4 md:px-6">
         {/* Header */}
@@ -96,7 +94,7 @@ export default function MeditationPage() {
         {/* Meditation grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {meditations.map((meditation) => (
-            <Link key={meditation.id} href={`/meditation/${meditation.id}`}>
+            <Link key={meditation.id} href={`/user/meditation/${meditation.id}`}>
               <div className={`${meditation.bgColor} rounded-[28px] p-6 cursor-pointer transition-all hover:shadow-lg hover:scale-105 duration-300 h-full flex flex-col`}>
                 {/* Gradient accent */}
                 <div className={`absolute top-0 right-0 w-32 h-32 bg-gradient-to-br ${meditation.color} rounded-[28px] -z-10`}></div>

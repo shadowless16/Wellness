@@ -1,6 +1,6 @@
 'use client'
 
-import { Heart, BarChart3, BookOpen, Bell, Settings, Music, Users, TrendingUp, BookMarked, Bookmark, Target, MoreHorizontal } from 'lucide-react'
+import { Heart, BarChart3, BookOpen, Bell, Settings, Music, Users, TrendingUp, BookMarked, Bookmark, Target, MoreHorizontal, Zap } from 'lucide-react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
@@ -18,6 +18,7 @@ const primaryNavItems = [
 const secondaryNavItems = [
   { href: '/user/insights', icon: <TrendingUp className="w-5 h-5" />, label: 'Insights' },
   { href: '/user/journal', icon: <BookMarked className="w-5 h-5" />, label: 'Journal' },
+  { href: '/user/exercises', icon: <Zap className="w-5 h-5" />, label: 'Exercises' },
   { href: '/user/resources', icon: <BookMarked className="w-5 h-5" />, label: 'Resources' },
   { href: '/user/saved', icon: <Bookmark className="w-5 h-5" />, label: 'Saved' },
   { href: '/user/profile', icon: <Settings className="w-5 h-5" />, label: 'Profile' },

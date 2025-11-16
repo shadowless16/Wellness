@@ -1,10 +1,8 @@
 import { TrendingUp, Calendar, Target, Zap } from 'lucide-react'
-import Navbar from '@/components/user/wellness/navbar'
 
 export default function InsightsPage() {
   return (
     <main className="min-h-screen bg-gradient-to-b from-white/80 to-warm-beige/5">
-      <Navbar />
       <div className="pt-8 pb-16">
       <div className="max-w-6xl mx-auto px-4 md:px-6">
         {/* Header */}

@@ -2,7 +2,6 @@
 
 import { useRouter } from 'next/navigation'
 import { BarChart3, TrendingUp } from 'lucide-react'
-import Navbar from '@/components/user/wellness/navbar'
 
 interface MoodEntry {
   date: string
@@ -26,12 +25,11 @@ export default function MoodPage() {
   const avgMood = (moodHistory.reduce((sum, entry) => sum + entry.mood, 0) / moodHistory.length).toFixed(1)
 
   const handleMoodClick = (index: number) => {
-    router.push(`/mood/${index + 1}`)
+    router.push(`/user/mood/${index + 1}`)
   }
 
   return (
     <main className="min-h-screen bg-gradient-to-br from-cream via-white to-cream-light">
-      <Navbar />
 
       <div className="max-w-7xl mx-auto px-6 py-12 space-y-8">
         {/* Header */}

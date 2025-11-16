@@ -2,7 +2,6 @@
 
 import { useRouter } from 'next/navigation'
 import { BookOpen, Plus, Search } from 'lucide-react'
-import Navbar from '@/components/user/wellness/navbar'
 import { useState } from 'react'
 
 interface JournalEntry {
@@ -46,7 +45,7 @@ export default function JournalPage() {
   const router = useRouter()
 
   const handleEntryClick = (id: number) => {
-    router.push(`/journal/${id}`)
+    router.push(`/user/journal/${id}`)
   }
 
   const filteredEntries = journalEntries.filter(entry =>
@@ -56,7 +55,6 @@ export default function JournalPage() {
 
   return (
     <main className="min-h-screen bg-gradient-to-br from-cream via-white to-cream-light">
-      <Navbar />
 
       <div className="max-w-4xl mx-auto px-6 py-12 space-y-8">
         {/* Header with CTA */}

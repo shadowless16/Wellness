@@ -1,137 +1,178 @@
 import Link from 'next/link'
-import { Play, Clock, Volume2, Users } from 'lucide-react'
-import Navbar from '@/components/user/wellness/navbar'
+import { ArrowLeft, Play, Download, Share2, Heart, Volume2, Zap } from 'lucide-react'
 
-const meditations = [
-  {
-    id: 1,
+const meditations: Record<string, any> = {
+  '1': {
     title: 'Morning Serenity',
-    duration: '10 min',
-    category: 'Mindfulness',
     instructor: 'Sarah Chen',
+    category: 'Mindfulness',
+    duration: '10 min',
     description: 'Start your day with calm focus and intention',
-    color: 'from-warm-teal/20 to-warm-teal/5',
-    bgColor: 'bg-warm-teal/5'
+    fullDescription: 'This guided meditation helps you cultivate clarity, focus, and positive intention for your day. Perfect for morning routines, this session combines gentle breathing techniques with mindfulness principles.',
+    bgColor: 'bg-warm-teal/5',
+    accentColor: 'text-warm-teal',
+    accentBg: 'bg-warm-teal/20',
+    benefits: ['Mental clarity', 'Positive mindset', 'Focus enhancement', 'Stress reduction'],
+    difficulty: 'Beginner'
   },
-  {
-    id: 2,
+  '2': {
     title: 'Deep Breathing',
-    duration: '8 min',
-    category: 'Breathing',
     instructor: 'Marcus Johnson',
+    category: 'Breathing',
+    duration: '8 min',
     description: 'Calm your nervous system with guided breathing',
-    color: 'from-warm-yellow/20 to-warm-yellow/5',
-    bgColor: 'bg-warm-yellow/5'
+    fullDescription: 'Learn powerful breathing techniques that activate your parasympathetic nervous system. This quick session is ideal for anxiety relief, stress management, or whenever you need an instant reset.',
+    bgColor: 'bg-warm-yellow/5',
+    accentColor: 'text-warm-yellow',
+    accentBg: 'bg-warm-yellow/20',
+    benefits: ['Anxiety relief', 'Nervous system calm', 'Instant reset', 'Better sleep'],
+    difficulty: 'Beginner'
   },
-  {
-    id: 3,
+  '3': {
     title: 'Sleep Story: Forest Dreams',
-    duration: '25 min',
-    category: 'Sleep',
     instructor: 'Elena Rodriguez',
+    category: 'Sleep',
+    duration: '25 min',
     description: 'Drift into peaceful sleep with this calming story',
-    color: 'from-warm-coral/20 to-warm-coral/5',
-    bgColor: 'bg-warm-coral/5'
+    fullDescription: 'A soothing bedtime story set in an ancient forest. This session combines storytelling with guided relaxation to help you drift into deep, restorative sleep.',
+    bgColor: 'bg-warm-coral/5',
+    accentColor: 'text-warm-coral',
+    accentBg: 'bg-warm-coral/20',
+    benefits: ['Better sleep', 'Relaxation', 'Dream support', 'Rest recovery'],
+    difficulty: 'Beginner'
   },
-  {
-    id: 4,
+  '4': {
     title: 'Body Scan Meditation',
-    duration: '15 min',
-    category: 'Relaxation',
     instructor: 'Dr. James Park',
+    category: 'Relaxation',
+    duration: '15 min',
     description: 'Release tension with a guided body awareness session',
-    color: 'from-warm-beige/40 to-warm-beige/10',
-    bgColor: 'bg-warm-beige/10'
+    fullDescription: 'Systematically scan through your entire body, releasing tension and building body awareness. This technique is beneficial for pain management and deep relaxation.',
+    bgColor: 'bg-warm-beige/10',
+    accentColor: 'text-warm-beige',
+    accentBg: 'bg-warm-beige/20',
+    benefits: ['Tension release', 'Body awareness', 'Pain management', 'Deep relaxation'],
+    difficulty: 'Intermediate'
   },
-  {
-    id: 5,
+  '5': {
     title: 'Loving Kindness',
-    duration: '12 min',
-    category: 'Compassion',
     instructor: 'Priya Sharma',
+    category: 'Compassion',
+    duration: '12 min',
     description: 'Cultivate inner compassion and positive emotions',
-    color: 'from-warm-coral/20 to-warm-coral/5',
-    bgColor: 'bg-warm-coral/5'
+    fullDescription: 'A powerful practice to cultivate self-compassion and extend kindness to others. This meditation builds emotional resilience and strengthens social connection.',
+    bgColor: 'bg-warm-coral/5',
+    accentColor: 'text-warm-coral',
+    accentBg: 'bg-warm-coral/20',
+    benefits: ['Self-compassion', 'Emotional resilience', 'Reduced judgment', 'Connection'],
+    difficulty: 'Intermediate'
   },
-  {
-    id: 6,
+  '6': {
     title: 'Work Stress Release',
-    duration: '7 min',
-    category: 'Quick Resets',
     instructor: 'Michael Torres',
+    category: 'Quick Resets',
+    duration: '7 min',
     description: 'Quick reset between meetings and tasks',
-    color: 'from-warm-teal/20 to-warm-teal/5',
-    bgColor: 'bg-warm-teal/5'
-  },
-]
+    fullDescription: 'A brief but powerful session designed for busy professionals. Perfect for desk breaks or between meetings to reset your focus and calm your mind.',
+    bgColor: 'bg-warm-teal/5',
+    accentColor: 'text-warm-teal',
+    accentBg: 'bg-warm-teal/20',
+    benefits: ['Quick reset', 'Focus return', 'Stress relief', 'Productivity boost'],
+    difficulty: 'Beginner'
+  }
+}
 
-export default function MeditationPage() {
+export default function MeditationDetailPage({ params }: { params: { id: string } }) {
+  const meditation = meditations[params.id] || meditations['1']
+
   return (
-    <main className="min-h-screen bg-gradient-to-b from-white/80 to-warm-beige/5">
-      <Navbar />
-      <div className="pt-8 pb-16">
-      <div className="max-w-6xl mx-auto px-4 md:px-6">
-        {/* Header */}
-        <div className="mb-12">
-          <h1 className="text-4xl font-light text-foreground mb-3">Guided Meditation</h1>
-          <p className="text-muted-foreground text-lg">Find peace with our collection of guided sessions</p>
+    <div className="min-h-screen bg-gradient-to-b from-white/80 to-warm-beige/5">
+      {/* Header with back button */}
+      <div className={`${meditation.bgColor} border-b border-warm-beige/20 sticky top-16 z-20`}>
+        <div className="max-w-4xl mx-auto px-4 md:px-6 py-4">
+          <Link href="/user/meditation">
+            <div className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors w-fit">
+              <ArrowLeft className="w-5 h-5" />
+              <span>Back to Meditation</span>
+            </div>
+          </Link>
         </div>
+      </div>
 
-        {/* Filter chips */}
-        <div className="flex gap-2 mb-8 flex-wrap">
-          {['All', 'Mindfulness', 'Sleep', 'Breathing', 'Quick Resets'].map((filter) => (
-            <button
-              key={filter}
-              className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
-                filter === 'All'
-                  ? 'bg-warm-teal/15 text-warm-teal'
-                  : 'bg-warm-beige/10 text-muted-foreground hover:bg-warm-beige/20'
-              }`}
-            >
-              {filter}
-            </button>
-          ))}
-        </div>
-
-        {/* Meditation grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {meditations.map((meditation) => (
-            <Link key={meditation.id} href={`/meditation/${meditation.id}`}>
-              <div className={`${meditation.bgColor} rounded-[28px] p-6 cursor-pointer transition-all hover:shadow-lg hover:scale-105 duration-300 h-full flex flex-col`}>
-                {/* Gradient accent */}
-                <div className={`absolute top-0 right-0 w-32 h-32 bg-gradient-to-br ${meditation.color} rounded-[28px] -z-10`}></div>
-                
-                {/* Category badge */}
-                <div className="flex items-center justify-between mb-4">
-                  <span className="text-xs font-semibold text-warm-teal uppercase tracking-wide">{meditation.category}</span>
-                  <div className="flex items-center gap-1 text-muted-foreground text-sm">
-                    <Clock className="w-4 h-4" />
-                    {meditation.duration}
-                  </div>
-                </div>
-
-                {/* Title */}
-                <h3 className="text-xl font-semibold text-foreground mb-2">{meditation.title}</h3>
-
-                {/* Description */}
-                <p className="text-sm text-muted-foreground mb-4 flex-grow">{meditation.description}</p>
-
-                {/* Footer */}
-                <div className="flex items-center justify-between pt-4 border-t border-warm-beige/20">
-                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                    <Users className="w-4 h-4" />
-                    <span>{meditation.instructor}</span>
-                  </div>
-                  <div className="w-10 h-10 rounded-full bg-warm-teal/20 flex items-center justify-center hover:bg-warm-teal/30 transition-colors">
-                    <Play className="w-5 h-5 text-warm-teal fill-warm-teal" />
-                  </div>
-                </div>
+      <div className="max-w-4xl mx-auto px-4 md:px-6 py-12">
+        {/* Main content */}
+        <div className="grid md:grid-cols-3 gap-8">
+          {/* Left: Content */}
+          <div className="md:col-span-2">
+            <div className="mb-8">
+              <div className="flex items-center gap-2 mb-3">
+                <span className="text-xs font-semibold uppercase tracking-wide text-warm-teal">{meditation.category}</span>
+                <span className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">•</span>
+                <span className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">{meditation.difficulty}</span>
               </div>
-            </Link>
-          ))}
+              <h1 className="text-4xl font-light text-foreground mb-4">{meditation.title}</h1>
+              <p className="text-lg text-muted-foreground">{meditation.fullDescription}</p>
+            </div>
+
+            {/* Benefits section */}
+            <div className="mb-12">
+              <h2 className="text-xl font-semibold text-foreground mb-4">Benefits</h2>
+              <div className="grid grid-cols-2 gap-3">
+                {meditation.benefits.map((benefit: string) => (
+                  <div key={benefit} className="flex items-center gap-3 p-3 bg-warm-beige/10 rounded-[16px]">
+                    <Zap className="w-5 h-5 text-warm-teal flex-shrink-0" />
+                    <span className="text-sm text-foreground">{benefit}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Instructor bio */}
+            <div className="bg-warm-beige/5 rounded-[24px] p-6">
+              <h3 className="font-semibold text-foreground mb-2">Instructor</h3>
+              <p className="text-muted-foreground text-sm mb-3">{meditation.instructor}</p>
+              <p className="text-sm text-muted-foreground">Experienced meditation guide with 10+ years of teaching. Specialized in mindfulness-based stress reduction and wellness coaching.</p>
+            </div>
+          </div>
+
+          {/* Right: Player card */}
+          <div className={`${meditation.bgColor} rounded-[28px] p-8 h-fit sticky top-24`}>
+            {/* Player visualization */}
+            <div className={`w-full aspect-square ${meditation.accentBg} rounded-[24px] flex items-center justify-center mb-6 cursor-pointer hover:shadow-lg transition-all`}>
+              <Play className={`w-12 h-12 ${meditation.accentColor} fill-current`} />
+            </div>
+
+            {/* Info */}
+            <div className="mb-6">
+              <div className="flex items-center gap-2 text-muted-foreground mb-2">
+                <Volume2 className="w-4 h-4" />
+                <span className="text-sm">{meditation.duration}</span>
+              </div>
+              <div className="text-sm text-muted-foreground">{meditation.instructor}</div>
+            </div>
+
+            {/* Action buttons */}
+            <div className="space-y-3">
+              <button className={`w-full ${meditation.accentBg} ${meditation.accentColor} font-semibold py-3 rounded-[16px] transition-all hover:shadow-md flex items-center justify-center gap-2`}>
+                <Play className="w-5 h-5 fill-current" />
+                Start Meditation
+              </button>
+              <button className="w-full border border-warm-beige/20 bg-white hover:bg-warm-beige/5 font-semibold py-3 rounded-[16px] transition-all flex items-center justify-center gap-2 text-foreground">
+                <Heart className="w-5 h-5" />
+                Save
+              </button>
+              <div className="grid grid-cols-2 gap-3">
+                <button className="border border-warm-beige/20 bg-white hover:bg-warm-beige/5 py-3 rounded-[16px] transition-all flex items-center justify-center gap-2 text-muted-foreground">
+                  <Download className="w-4 h-4" />
+                </button>
+                <button className="border border-warm-beige/20 bg-white hover:bg-warm-beige/5 py-3 rounded-[16px] transition-all flex items-center justify-center gap-2 text-muted-foreground">
+                  <Share2 className="w-4 h-4" />
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      </div>
-    </main>
+    </div>
   )
 }

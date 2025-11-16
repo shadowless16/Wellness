@@ -2,7 +2,6 @@
 
 import { ArrowLeft, Play, Pause, Volume2, Info } from 'lucide-react'
 import Link from 'next/link'
-import Navbar from '@/components/user/wellness/navbar'
 import { useState } from 'react'
 
 const exercisesData: { [key: string]: any } = {
@@ -54,11 +53,10 @@ export default function ExerciseDetailPage({ params }: { params: { id: string } 
 
   return (
     <main className="min-h-screen bg-gradient-to-br from-cream via-white to-cream-light">
-      <Navbar />
 
       <div className="max-w-3xl mx-auto px-6 py-12 space-y-8">
         {/* Header */}
-        <Link href="/exercises" className="flex items-center gap-2 text-warm-teal hover:opacity-75 transition-opacity">
+        <Link href="/user/exercises" className="flex items-center gap-2 text-warm-teal hover:opacity-75 transition-opacity">
           <ArrowLeft className="w-4 h-4" />
           Back to Exercises
         </Link>

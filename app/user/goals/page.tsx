@@ -1,6 +1,5 @@
 import Link from 'next/link'
 import { ArrowLeft, Users, Flame, Trophy, CheckCircle2 } from 'lucide-react'
-import Navbar from '@/components/user/wellness/navbar'
 
 const challenges: Record<string, any> = {
   '1': {
@@ -36,12 +35,11 @@ export default function ChallengeDetailPage({ params }: { params: { id: string }
 
   return (
     <main className="min-h-screen bg-gradient-to-b from-white/80 to-warm-beige/5">
-      <Navbar />
       <div>
       {/* Header */}
       <div className={`${challenge.bgColor} border-b border-warm-beige/20 sticky top-16 z-20`}>
         <div className="max-w-4xl mx-auto px-4 md:px-6 py-4">
-          <Link href="/goals">
+          <Link href="/user/goals">
             <div className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors w-fit">
               <ArrowLeft className="w-5 h-5" />
               <span>Back to Goals</span>

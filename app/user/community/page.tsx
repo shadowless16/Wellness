@@ -1,6 +1,5 @@
 import Link from 'next/link'
 import { Heart, MessageCircle, Share2, Users } from 'lucide-react'
-import Navbar from '@/components/user/wellness/navbar'
 
 const communityPosts = [
   {
@@ -80,7 +79,6 @@ const communityPosts = [
 export default function CommunityPage() {
   return (
     <main className="min-h-screen bg-gradient-to-b from-white/80 to-warm-beige/5">
-      <Navbar />
       <div className="pt-8 pb-16">
       <div className="max-w-2xl mx-auto px-4 md:px-6">
         {/* Header */}
@@ -115,7 +113,7 @@ export default function CommunityPage() {
         {/* Posts */}
         <div className="space-y-4">
           {communityPosts.map((post) => (
-            <Link key={post.id} href={`/community/${post.id}`}>
+            <Link key={post.id} href={`/user/community/${post.id}`}>
               <div className={`${post.bgColor} rounded-[24px] p-6 cursor-pointer transition-all hover:shadow-lg hover:scale-102 duration-300 border border-warm-beige/10`}>
                 {/* Header */}
                 <div className="flex items-start justify-between mb-4">

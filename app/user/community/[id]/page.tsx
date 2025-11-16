@@ -23,7 +23,7 @@ export default function CommunityPostPage({ params }: { params: { id: string } }
       {/* Header */}
       <div className={`${post.bgColor} border-b border-warm-beige/20 sticky top-16 z-20`}>
         <div className="max-w-2xl mx-auto px-4 md:px-6 py-4">
-          <Link href="/community">
+          <Link href="/user/community">
             <div className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors w-fit">
               <ArrowLeft className="w-5 h-5" />
               <span>Back to Community</span>

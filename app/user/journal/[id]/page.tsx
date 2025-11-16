@@ -2,7 +2,6 @@
 
 import { ArrowLeft, Edit2, Trash2, Share2 } from 'lucide-react'
 import Link from 'next/link'
-import Navbar from '@/components/user/wellness/navbar'
 
 const journalEntries: { [key: string]: any } = {
   '1': {
@@ -34,12 +33,11 @@ export default function JournalDetailPage({ params }: { params: { id: string } }
 
   return (
     <main className="min-h-screen bg-gradient-to-br from-cream via-white to-cream-light">
-      <Navbar />
 
       <div className="max-w-3xl mx-auto px-6 py-12 space-y-8">
         {/* Header */}
-        <Link href="/journal" className="flex items-center gap-2 text-warm-teal hover:opacity-75 transition-opacity">
-          <ArrowLeft className="w-4 h-4" />
+        <Link href="/user/journal" className="flex items-center gap-2 text-warm-teal hover:opacity-75 transition-opacity">
+          <ArrowLeft className="w-4 h-4" /> 
           Back to Journal
         </Link>
 
