@@ -16,36 +16,36 @@ export default function WellnessDashboard() {
       title: 'Wellness Programs',
       description: '4 structured courses',
       icon: '🎯',
-      color: 'from-warm-teal/30 to-warm-teal/10',
-      borderColor: 'border-warm-teal/20',
-      onClick: () => router.push('/programs')
+      color: 'from-[oklch(0.65_0.15_130)]/15 to-[oklch(0.65_0.15_130)]/5',
+      borderColor: 'border-[oklch(0.65_0.15_130)]/20',
+      onClick: () => router.push('/user/programs')
     },
     {
       id: 'exercises',
       title: 'Guided Exercises',
       description: '6 therapeutic practices',
       icon: '✨',
-      color: 'from-warm-yellow/30 to-warm-yellow/10',
-      borderColor: 'border-warm-yellow/20',
-      onClick: () => router.push('/exercises')
+      color: 'from-[oklch(0.70_0.15_50)]/15 to-[oklch(0.70_0.15_50)]/5',
+      borderColor: 'border-[oklch(0.70_0.15_50)]/20',
+      onClick: () => router.push('/user/exercises')
     },
     {
       id: 'journal',
       title: 'Journal',
       description: '3 recent entries',
       icon: '📓',
-      color: 'from-warm-emergency/30 to-warm-emergency/10',
-      borderColor: 'border-warm-emergency/20',
-      onClick: () => router.push('/journal')
+      color: 'from-[oklch(0.70_0.15_50)]/10 to-[oklch(0.65_0.15_130)]/5',
+      borderColor: 'border-[oklch(0.70_0.15_50)]/20',
+      onClick: () => router.push('/user/journal')
     },
     {
       id: 'mood',
       title: 'Mood History',
       description: 'Track patterns',
       icon: '📊',
-      color: 'from-warm-beige/40 to-warm-beige/10',
-      borderColor: 'border-warm-beige/20',
-      onClick: () => router.push('/mood')
+      color: 'from-[oklch(0.65_0.15_130)]/10 to-[oklch(0.70_0.15_50)]/5',
+      borderColor: 'border-[oklch(0.65_0.15_130)]/20',
+      onClick: () => router.push('/user/mood')
     },
   ]
 
@@ -91,7 +91,7 @@ export default function WellnessDashboard() {
         <div className="space-y-4 pt-4">
           <h2 className="text-2xl font-semibold bg-gradient-to-r from-[oklch(0.70_0.15_50)] to-[oklch(0.65_0.15_130)] bg-clip-text text-transparent">Your Week at a Glance</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <div className="p-6 rounded-[24px] bg-white border border-warm-beige/20 shadow-soft hover:shadow-soft-lg transition-shadow">
+            <div className="p-6 rounded-[24px] bg-white border border-[oklch(0.70_0.15_50)]/20 shadow-soft hover:shadow-soft-lg transition-shadow">
               <div className="flex items-center justify-between mb-2">
                 <p className="text-sm text-muted-foreground">Exercises Completed</p>
                 <Activity className="w-5 h-5 text-[oklch(0.70_0.15_50)]" />
@@ -100,16 +100,16 @@ export default function WellnessDashboard() {
               <p className="text-xs text-muted-foreground mt-2">+2 from last week</p>
             </div>
 
-            <div className="p-6 rounded-[24px] bg-white border border-warm-beige/20 shadow-soft hover:shadow-soft-lg transition-shadow">
+            <div className="p-6 rounded-[24px] bg-white border border-[oklch(0.70_0.15_50)]/20 shadow-soft hover:shadow-soft-lg transition-shadow">
               <div className="flex items-center justify-between mb-2">
                 <p className="text-sm text-muted-foreground">Journal Entries</p>
-                <BookOpen className="w-5 h-5 text-warm-yellow" />
+                <BookOpen className="w-5 h-5 text-[oklch(0.65_0.15_130)]" />
               </div>
               <p className="text-3xl font-semibold text-foreground">3</p>
               <p className="text-xs text-muted-foreground mt-2">Keep reflecting daily</p>
             </div>
 
-            <div className="p-6 rounded-[24px] bg-white border border-warm-beige/20 shadow-soft hover:shadow-soft-lg transition-shadow">
+            <div className="p-6 rounded-[24px] bg-white border border-[oklch(0.70_0.15_50)]/20 shadow-soft hover:shadow-soft-lg transition-shadow">
               <div className="flex items-center justify-between mb-2">
                 <p className="text-sm text-muted-foreground">Wellness Streak</p>
                 <Sparkles className="w-5 h-5 text-[oklch(0.70_0.15_50)]" />
@@ -135,7 +135,7 @@ export default function WellnessDashboard() {
         <div className="space-y-4 pt-4">
           <h2 className="text-2xl font-semibold bg-gradient-to-r from-[oklch(0.70_0.15_50)] to-[oklch(0.65_0.15_130)] bg-clip-text text-transparent">Recommended for You</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="p-6 rounded-[24px] bg-gradient-to-br from-warm-teal/20 to-warm-teal/5 border border-warm-teal/20 shadow-soft hover:shadow-soft-lg transition-all cursor-pointer group">
+            <div className="p-6 rounded-[24px] bg-gradient-to-br from-[oklch(0.65_0.15_130)]/15 to-[oklch(0.65_0.15_130)]/5 border border-[oklch(0.65_0.15_130)]/20 shadow-soft hover:shadow-soft-lg transition-all cursor-pointer group">
               <div className="flex items-start justify-between mb-3">
                 <div>
                   <p className="text-sm text-muted-foreground">Try this exercise</p>
@@ -144,10 +144,10 @@ export default function WellnessDashboard() {
                 </div>
                 <span className="text-2xl">💨</span>
               </div>
-              <button className="text-xs font-medium text-[oklch(0.70_0.15_50)] hover:opacity-75 transition-opacity bg-gradient-to-r from-[oklch(0.70_0.15_50)]/20 to-[oklch(0.65_0.15_130)]/10 px-3 py-1 rounded-full border border-[oklch(0.70_0.15_50)]/30">Start Now →</button>
+              <button className="text-xs font-medium text-[oklch(0.70_0.15_50)] hover:opacity-75 transition-opacity bg-[oklch(0.70_0.15_50)]/10 hover:bg-[oklch(0.70_0.15_50)]/20 px-3 py-1 rounded-full border border-[oklch(0.70_0.15_50)]/30">Start Now →</button>
             </div>
 
-            <div className="p-6 rounded-[24px] bg-gradient-to-br from-warm-yellow/20 to-warm-yellow/5 border border-warm-yellow/20 shadow-soft hover:shadow-soft-lg transition-all cursor-pointer group">
+            <div className="p-6 rounded-[24px] bg-gradient-to-br from-[oklch(0.70_0.15_50)]/15 to-[oklch(0.70_0.15_50)]/5 border border-[oklch(0.70_0.15_50)]/20 shadow-soft hover:shadow-soft-lg transition-all cursor-pointer group">
               <div className="flex items-start justify-between mb-3">
                 <div>
                   <p className="text-sm text-muted-foreground">Enroll in program</p>
@@ -156,7 +156,7 @@ export default function WellnessDashboard() {
                 </div>
                 <span className="text-2xl">🧘</span>
               </div>
-              <button className="text-xs font-medium text-[oklch(0.70_0.15_50)] hover:opacity-75 transition-opacity bg-gradient-to-r from-[oklch(0.70_0.15_50)]/20 to-[oklch(0.65_0.15_130)]/10 px-3 py-1 rounded-full border border-[oklch(0.70_0.15_50)]/30">Explore →</button>
+              <button className="text-xs font-medium text-[oklch(0.70_0.15_50)] hover:opacity-75 transition-opacity bg-[oklch(0.70_0.15_50)]/10 hover:bg-[oklch(0.70_0.15_50)]/20 px-3 py-1 rounded-full border border-[oklch(0.70_0.15_50)]/30">Explore →</button>
             </div>
           </div>
         </div>

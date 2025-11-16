@@ -9,7 +9,7 @@ const journalEntries: { [key: string]: any } = {
     date: 'Nov 15, 2025',
     title: 'Finding Peace in Stillness',
     mood: '🧘',
-    color: 'from-warm-teal/30 to-warm-teal/10',
+    color: 'from-[oklch(0.65_0.15_130)]/15 to-[oklch(0.65_0.15_130)]/5',
     content: `Today I learned that sometimes the best insights come when we stop trying so hard. I spent 20 minutes just breathing and observing my thoughts without judgment.
 
 It\'s amazing how much clarity emerges when we create space for stillness. All the worries that seemed so urgent this morning suddenly felt less important when I simply sat with them.
@@ -21,7 +21,7 @@ I\'m grateful for my practice and for the people in my life who encourage me to 
     date: 'Nov 14, 2025',
     title: 'Grateful for Small Moments',
     mood: '☀️',
-    color: 'from-warm-yellow/30 to-warm-yellow/10',
+    color: 'from-[oklch(0.70_0.15_50)]/15 to-[oklch(0.70_0.15_50)]/5',
     content: `Morning coffee, sunshine, and a quiet moment before the day began. These simple things matter more than I realized.
 
 I often chase big moments and achievements, but today reminded me that life\'s richness is found in the everyday. The warmth of the cup, the golden light, the taste of my favorite brew - these are the experiences that truly nourish the soul.`
@@ -37,13 +37,13 @@ export default async function JournalDetailPage({ params }: { params: Promise<{ 
 
       <div className="max-w-3xl mx-auto px-6 py-12 space-y-8">
         {/* Header */}
-        <Link href="/user/journal" className="flex items-center gap-2 text-warm-teal hover:opacity-75 transition-opacity">
+        <Link href="/user/journal" className="flex items-center gap-2 text-[oklch(0.65_0.15_130)] hover:opacity-75 transition-opacity">
           <ArrowLeft className="w-4 h-4" /> 
           Back to Journal
         </Link>
 
         {/* Entry card */}
-        <div className={`p-12 rounded-[32px] bg-gradient-to-br ${entry.color} border border-warm-beige/20 shadow-soft-lg`}>
+        <div className={`p-12 rounded-[32px] bg-gradient-to-br ${entry.color} border border-[oklch(0.70_0.15_50)]/20 shadow-soft-lg`}>
           {/* Header */}
           <div className="flex justify-between items-start mb-8">
             <div className="space-y-4">
@@ -75,7 +75,7 @@ export default async function JournalDetailPage({ params }: { params: Promise<{ 
               <Edit2 className="w-4 h-4" />
               Edit
             </button>
-            <button className="px-6 py-3 rounded-[24px] bg-white/50 text-warm-emergency font-medium hover:bg-white transition-colors flex items-center gap-2">
+            <button className="px-6 py-3 rounded-[24px] bg-white/50 text-[oklch(0.70_0.15_50)] font-medium hover:bg-white transition-colors flex items-center gap-2">
               <Trash2 className="w-4 h-4" />
               Delete
             </button>

@@ -7,21 +7,21 @@ export default function InsightsPage() {
       <div className="max-w-6xl mx-auto px-4 md:px-6">
         {/* Header */}
         <div className="mb-12">
-          <h1 className="text-4xl font-light mb-3 bg-gradient-to-r from-[oklch(0.65_0.15_130)] to-[oklch(0.70_0.15_50)] bg-clip-text text-transparent">Your Wellness Insights</h1>
+          <h1 className="text-4xl font-light mb-3 bg-gradient-to-r from-[oklch(0.70_0.15_50)] to-[oklch(0.65_0.15_130)] bg-clip-text text-transparent">Your Wellness Insights</h1>
           <p className="text-muted-foreground text-lg">Track your progress and discover patterns in your wellness journey</p>
         </div>
 
         {/* Stats overview */}
         <div className="grid md:grid-cols-4 gap-6 mb-12">
           {[
-            { label: 'Total Meditations', value: '47', subtext: '+3 this week', icon: Zap, color: 'from-warm-teal/20 to-warm-teal/5' },
-            { label: 'Streak', value: '21 days', subtext: 'Keep going!', icon: Target, color: 'from-warm-yellow/20 to-warm-yellow/5' },
-            { label: 'Avg. Mood', value: '7.2/10', subtext: '+0.5 vs last month', icon: TrendingUp, color: 'from-warm-coral/20 to-warm-coral/5' },
-            { label: 'Journal Entries', value: '34', subtext: 'Last: 2 days ago', icon: Calendar, color: 'from-warm-beige/40 to-warm-beige/10' },
+            { label: 'Total Meditations', value: '47', subtext: '+3 this week', icon: Zap, color: 'from-[oklch(0.65_0.15_130)]/15 to-[oklch(0.65_0.15_130)]/5' },
+            { label: 'Streak', value: '21 days', subtext: 'Keep going!', icon: Target, color: 'from-[oklch(0.70_0.15_50)]/15 to-[oklch(0.70_0.15_50)]/5' },
+            { label: 'Avg. Mood', value: '7.2/10', subtext: '+0.5 vs last month', icon: TrendingUp, color: 'from-[oklch(0.70_0.15_50)]/10 to-[oklch(0.65_0.15_130)]/5' },
+            { label: 'Journal Entries', value: '34', subtext: 'Last: 2 days ago', icon: Calendar, color: 'from-[oklch(0.65_0.15_130)]/10 to-[oklch(0.70_0.15_50)]/5' },
           ].map((stat, i) => {
             const Icon = stat.icon
             return (
-              <div key={i} className={`bg-gradient-to-br ${stat.color} rounded-[24px] p-6 border border-warm-beige/20`}>
+              <div key={i} className={`bg-gradient-to-br ${stat.color} rounded-[24px] p-6 border border-[oklch(0.70_0.15_50)]/20`}>
                 <div className="flex items-start justify-between mb-4">
                   <div>
                     <p className="text-sm text-muted-foreground mb-1">{stat.label}</p>
@@ -38,29 +38,29 @@ export default function InsightsPage() {
         {/* Charts and graphs */}
         <div className="grid md:grid-cols-2 gap-6 mb-12">
           {/* Mood over time */}
-          <div className="bg-warm-beige/5 rounded-[24px] p-8 border border-warm-beige/20">
-            <h3 className="text-lg font-semibold mb-6 text-[oklch(0.65_0.15_130)]">Mood Trends</h3>
-            <div className="h-40 bg-gradient-to-b from-warm-teal/10 to-warm-beige/5 rounded-[16px] flex items-end justify-around px-4 gap-2">
+          <div className="bg-[oklch(0.70_0.15_50)]/5 rounded-[24px] p-8 border border-[oklch(0.70_0.15_50)]/20">
+            <h3 className="text-lg font-semibold mb-6 text-[oklch(0.70_0.15_50)]">Mood Trends</h3>
+            <div className="h-40 bg-gradient-to-b from-[oklch(0.65_0.15_130)]/10 to-[oklch(0.70_0.15_50)]/5 rounded-[16px] flex items-end justify-around px-4 gap-2">
               {[4, 6, 5, 7, 6, 8, 7, 8, 7, 8, 9, 8].map((height, i) => (
-                <div key={i} className="flex-grow max-w-2 bg-warm-teal rounded-t-[8px]" style={{ height: `${(height / 10) * 100}%` }}></div>
+                <div key={i} className="flex-grow max-w-2 bg-[oklch(0.65_0.15_130)] rounded-t-[8px]" style={{ height: `${(height / 10) * 100}%` }}></div>
               ))}
             </div>
             <p className="text-sm text-muted-foreground mt-4">Last 12 days - Overall trend improving</p>
           </div>
 
           {/* Meditation activity */}
-          <div className="bg-warm-beige/5 rounded-[24px] p-8 border border-warm-beige/20">
-            <h3 className="text-lg font-semibold mb-6 text-[oklch(0.65_0.15_130)]">Activity Heatmap</h3>
+          <div className="bg-[oklch(0.70_0.15_50)]/5 rounded-[24px] p-8 border border-[oklch(0.70_0.15_50)]/20">
+            <h3 className="text-lg font-semibold mb-6 text-[oklch(0.70_0.15_50)]">Activity Heatmap</h3>
             <div className="grid grid-cols-7 gap-1">
               {Array(28).fill(0).map((_, i) => (
                 <div
                   key={i}
                   className={`aspect-square rounded-[6px] ${
                     [5, 7, 10, 12, 15, 18, 20, 23].includes(i)
-                      ? 'bg-warm-teal'
+                      ? 'bg-[oklch(0.65_0.15_130)]'
                       : [2, 8, 14, 19, 25].includes(i)
-                      ? 'bg-warm-teal/50'
-                      : 'bg-warm-beige/20'
+                      ? 'bg-[oklch(0.65_0.15_130)]/50'
+                      : 'bg-[oklch(0.70_0.15_50)]/20'
                   }`}
                 ></div>
               ))}
@@ -77,7 +77,7 @@ export default function InsightsPage() {
             { title: 'Progress Pattern', description: 'Mood improved 2.3 points on weeks you journaled daily', icon: '📈' },
             { title: 'Community Active', description: 'You\'ve engaged with 12 community posts this month', icon: '👥' },
           ].map((insight, i) => (
-            <div key={i} className="bg-warm-beige/5 rounded-[24px] p-6 border border-warm-beige/20">
+            <div key={i} className="bg-[oklch(0.70_0.15_50)]/5 rounded-[24px] p-6 border border-[oklch(0.70_0.15_50)]/20">
               <div className="flex items-start gap-4">
                 <div className="text-3xl">{insight.icon}</div>
                 <div>

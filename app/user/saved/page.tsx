@@ -10,7 +10,7 @@ const savedItems = [
     title: 'Sleep Story: Forest Dreams',
     category: 'Sleep',
     savedDate: 'Saved 5 days ago',
-    bgColor: 'bg-warm-coral/5',
+    bgColor: 'bg-[oklch(0.70_0.15_50)]/5',
     icon: '🌙'
   },
   {
@@ -19,7 +19,7 @@ const savedItems = [
     title: 'Morning Serenity',
     category: 'Mindfulness',
     savedDate: 'Saved 1 week ago',
-    bgColor: 'bg-warm-teal/5',
+    bgColor: 'bg-[oklch(0.65_0.15_130)]/5',
     icon: '🌅'
   },
   {
@@ -28,7 +28,7 @@ const savedItems = [
     title: 'My Journey with Daily Meditation',
     category: 'Success Stories',
     savedDate: 'Saved 2 weeks ago',
-    bgColor: 'bg-warm-yellow/5',
+    bgColor: 'bg-[oklch(0.70_0.15_50)]/5',
     icon: '📖'
   },
   {
@@ -37,7 +37,7 @@ const savedItems = [
     title: 'The Science Behind Meditation',
     category: 'Learning',
     savedDate: 'Saved 3 weeks ago',
-    bgColor: 'bg-warm-beige/10',
+    bgColor: 'bg-[oklch(0.65_0.15_130)]/5',
     icon: '📚'
   },
   {
@@ -46,7 +46,7 @@ const savedItems = [
     title: 'Deep Breathing Technique',
     category: 'Breathing',
     savedDate: 'Saved 1 month ago',
-    bgColor: 'bg-warm-teal/5',
+    bgColor: 'bg-[oklch(0.65_0.15_130)]/5',
     icon: '🫁'
   },
   {
@@ -55,7 +55,7 @@ const savedItems = [
     title: 'Mindfulness Basics',
     category: 'Courses',
     savedDate: 'Saved 1 month ago',
-    bgColor: 'bg-warm-coral/5',
+    bgColor: 'bg-[oklch(0.70_0.15_50)]/5',
     icon: '🎓'
   },
 ]
@@ -67,7 +67,7 @@ export default function SavedPage() {
       <div className="max-w-4xl mx-auto px-4 md:px-6">
         {/* Header */}
         <div className="mb-12">
-          <h1 className="text-4xl font-light mb-3 bg-gradient-to-r from-[oklch(0.65_0.15_130)] to-[oklch(0.70_0.15_50)] bg-clip-text text-transparent">Saved Content</h1>
+          <h1 className="text-4xl font-light mb-3 bg-gradient-to-r from-[oklch(0.70_0.15_50)] to-[oklch(0.65_0.15_130)] bg-clip-text text-transparent">Saved Content</h1>
           <p className="text-muted-foreground text-lg">Your personal collection of favorite meditations, articles, and resources</p>
         </div>
 
@@ -78,8 +78,8 @@ export default function SavedPage() {
               key={filter}
               className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
                 filter === 'All'
-                  ? 'bg-gradient-to-r from-[oklch(0.65_0.15_130)]/15 to-[oklch(0.70_0.15_50)]/10 text-[oklch(0.65_0.15_130)]'
-                  : 'bg-warm-beige/10 text-muted-foreground hover:bg-gradient-to-r hover:from-[oklch(0.65_0.15_130)]/5 hover:to-[oklch(0.70_0.15_50)]/5'
+                  ? 'bg-gradient-to-r from-[oklch(0.70_0.15_50)]/15 to-[oklch(0.65_0.15_130)]/10 text-[oklch(0.70_0.15_50)]'
+                  : 'bg-[oklch(0.70_0.15_50)]/5 text-muted-foreground hover:bg-[oklch(0.70_0.15_50)]/10'
               }`}
             >
               {filter}
@@ -91,7 +91,7 @@ export default function SavedPage() {
         <div className="space-y-4">
           {savedItems.map((item) => (
             <Link key={item.id} href={`/user/${item.type.toLowerCase().replace(' ', '-')}/${item.id}`}>
-              <div className={`${item.bgColor} rounded-[24px] p-6 cursor-pointer transition-all hover:shadow-lg hover:scale-102 duration-300 border border-warm-beige/20 flex items-center justify-between group`}>
+              <div className={`${item.bgColor} rounded-[24px] p-6 cursor-pointer transition-all hover:shadow-lg hover:scale-102 duration-300 border border-[oklch(0.70_0.15_50)]/20 flex items-center justify-between group`}>
                 <div className="flex items-start gap-4 flex-grow">
                   <div className="text-3xl flex-shrink-0">{item.icon}</div>
                   <div className="flex-grow">
@@ -108,7 +108,7 @@ export default function SavedPage() {
                   onClick={(e) => {
                     e.preventDefault()
                   }}
-                  className="text-muted-foreground hover:text-warm-coral transition-colors opacity-0 group-hover:opacity-100 flex-shrink-0"
+                  className="text-muted-foreground hover:text-[oklch(0.70_0.15_50)] transition-colors opacity-0 group-hover:opacity-100 flex-shrink-0"
                 >
                   <Trash2 className="w-5 h-5" />
                 </button>

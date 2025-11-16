@@ -9,9 +9,9 @@ const challenges: Record<string, any> = {
     participants: 2847,
     daysLeft: 4,
     joined: true,
-    bgColor: 'bg-warm-teal/5',
-    accentColor: 'text-warm-teal',
-    accentBg: 'bg-warm-teal/10',
+    bgColor: 'bg-[oklch(0.65_0.15_130)]/5',
+    accentColor: 'text-[oklch(0.65_0.15_130)]',
+    accentBg: 'bg-[oklch(0.65_0.15_130)]/10',
     startDate: 'Nov 20, 2025',
     endDate: 'Nov 27, 2025',
     difficulty: 'Beginner',
@@ -29,8 +29,8 @@ const challenges: Record<string, any> = {
   },
 }
 
-export default async function ChallengeDetailPage({ params }: { params: Promise<{ id: string }> }) {
-  const { id } = await params
+export default function ChallengeDetailPage({ params }: { params: { id: string } }) {
+  const { id } = params
   const challenge = challenges[id] || challenges['1']
   const completedDays = challenge.days.filter((d: any) => d.completed).length
 
@@ -38,7 +38,7 @@ export default async function ChallengeDetailPage({ params }: { params: Promise<
     <main className="min-h-screen bg-gradient-to-b from-white/80 to-warm-beige/5">
       <div>
       {/* Header */}
-      <div className={`${challenge.bgColor} border-b border-warm-beige/20 sticky top-16 z-20`}>
+      <div className={`${challenge.bgColor} border-b border-[oklch(0.70_0.15_50)]/20 sticky top-16 z-20`}>
         <div className="max-w-4xl mx-auto px-4 md:px-6 py-4">
           <Link href="/user/goals">
             <div className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors w-fit">
@@ -59,21 +59,21 @@ export default async function ChallengeDetailPage({ params }: { params: Promise<
               <div className="flex items-center gap-2 mb-3">
                 <span className="text-xs font-semibold uppercase tracking-wide text-[oklch(0.70_0.15_50)]">{challenge.difficulty} • {challenge.dailyCommitment}</span>
               </div>
-              <h1 className="text-4xl font-light mb-3 bg-gradient-to-r from-[oklch(0.65_0.15_130)] to-[oklch(0.70_0.15_50)] bg-clip-text text-transparent">{challenge.title}</h1>
+              <h1 className="text-4xl font-light mb-3 bg-gradient-to-r from-[oklch(0.70_0.15_50)] to-[oklch(0.65_0.15_130)] bg-clip-text text-transparent">{challenge.title}</h1>
               <p className="text-lg text-muted-foreground">{challenge.fullDescription}</p>
             </div>
 
             {/* Challenge details */}
             <div className="grid grid-cols-3 gap-4 mb-12">
-              <div className="bg-warm-beige/5 rounded-[16px] p-4">
+              <div className="bg-[oklch(0.70_0.15_50)]/5 rounded-[16px] p-4">
                 <p className="text-xs text-muted-foreground mb-1">Instructor</p>
                 <p className="font-semibold text-foreground">{challenge.instructor}</p>
               </div>
-              <div className="bg-warm-beige/5 rounded-[16px] p-4">
+              <div className="bg-[oklch(0.70_0.15_50)]/5 rounded-[16px] p-4">
                 <p className="text-xs text-muted-foreground mb-1">Start Date</p>
                 <p className="font-semibold text-foreground">{challenge.startDate}</p>
               </div>
-              <div className="bg-warm-beige/5 rounded-[16px] p-4">
+              <div className="bg-[oklch(0.70_0.15_50)]/5 rounded-[16px] p-4">
                 <p className="text-xs text-muted-foreground mb-1">Duration</p>
                 <p className="font-semibold text-foreground">7 Days</p>
               </div>
@@ -81,24 +81,24 @@ export default async function ChallengeDetailPage({ params }: { params: Promise<
 
             {/* Daily breakdown */}
             <div>
-              <h2 className="text-xl font-semibold mb-6 text-[oklch(0.65_0.15_130)]">Daily Sessions</h2>
+              <h2 className="text-xl font-semibold mb-6 text-[oklch(0.70_0.15_50)]">Daily Sessions</h2>
               <div className="space-y-3">
                 {challenge.days.map((dayItem: any, i: number) => (
                   <div
                     key={i}
-                    className={`${dayItem.completed ? 'bg-warm-teal/10' : 'bg-warm-beige/5'} rounded-[16px] p-4 flex items-start gap-4 border ${
-                      dayItem.completed ? 'border-warm-teal/20' : 'border-warm-beige/20'
+                    className={`${dayItem.completed ? 'bg-[oklch(0.65_0.15_130)]/10' : 'bg-[oklch(0.70_0.15_50)]/5'} rounded-[16px] p-4 flex items-start gap-4 border ${
+                      dayItem.completed ? 'border-[oklch(0.65_0.15_130)]/20' : 'border-[oklch(0.70_0.15_50)]/20'
                     } cursor-pointer hover:shadow-md transition-all`}
                   >
                     <div
                       className={`w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 mt-1 ${
-                        dayItem.completed ? 'bg-warm-teal text-white' : 'bg-warm-beige/20 text-muted-foreground font-semibold'
+                        dayItem.completed ? 'bg-[oklch(0.65_0.15_130)] text-white' : 'bg-[oklch(0.70_0.15_50)]/20 text-muted-foreground font-semibold'
                       }`}
                     >
                       {dayItem.completed ? <CheckCircle2 className="w-5 h-5" /> : dayItem.day}
                     </div>
                     <div className="flex-grow">
-                      <p className={`font-semibold ${dayItem.completed ? 'text-warm-teal' : 'text-foreground'}`}>
+                      <p className={`font-semibold ${dayItem.completed ? 'text-[oklch(0.65_0.15_130)]' : 'text-foreground'}`}>
                         Day {dayItem.day}: {dayItem.title}
                       </p>
                       <p className="text-sm text-muted-foreground mt-1">{dayItem.description}</p>
@@ -115,18 +115,18 @@ export default async function ChallengeDetailPage({ params }: { params: Promise<
             <div className="mb-8">
               <div className="flex items-center justify-between mb-3">
                 <span className="text-sm font-semibold text-foreground">Progress</span>
-                <span className="text-sm font-bold text-warm-teal">{completedDays}/7</span>
+                <span className="text-sm font-bold text-[oklch(0.65_0.15_130)]">{completedDays}/7</span>
               </div>
-              <div className="bg-warm-beige/20 rounded-full h-3 overflow-hidden">
+              <div className="bg-[oklch(0.70_0.15_50)]/20 rounded-full h-3 overflow-hidden">
                 <div
-                  className={`h-full rounded-full transition-all ${challenge.accentColor}`}
+                  className="h-full bg-gradient-to-r from-[oklch(0.65_0.15_130)] to-[oklch(0.70_0.15_50)] rounded-full transition-all"
                   style={{ width: `${(completedDays / 7) * 100}%` }}
                 ></div>
               </div>
             </div>
 
             {/* Stats */}
-            <div className="space-y-4 mb-8 pb-8 border-b border-warm-beige/20">
+            <div className="space-y-4 mb-8 pb-8 border-b border-[oklch(0.70_0.15_50)]/20">
               <div className="flex items-center gap-3">
                 <Users className="w-5 h-5 text-muted-foreground" />
                 <div>
@@ -135,14 +135,14 @@ export default async function ChallengeDetailPage({ params }: { params: Promise<
                 </div>
               </div>
               <div className="flex items-center gap-3">
-                <Flame className="w-5 h-5 text-warm-coral" />
+                <Flame className="w-5 h-5 text-[oklch(0.70_0.15_50)]" />
                 <div>
                   <p className="text-xs text-muted-foreground">Time Left</p>
                   <p className="font-semibold text-foreground">{challenge.daysLeft} days</p>
                 </div>
               </div>
               <div className="flex items-center gap-3">
-                <Trophy className="w-5 h-5 text-warm-yellow" />
+                <Trophy className="w-5 h-5 text-[oklch(0.70_0.15_50)]" />
                 <div>
                   <p className="text-xs text-muted-foreground">Completion Reward</p>
                   <p className="font-semibold text-foreground">Badge & Certificate</p>

@@ -21,8 +21,8 @@ let courseModules: Module[] = [
   { id: 5, title: 'Daily Practice Guide', type: 'microlearning', duration: '5 min', completed: false, locked: false }
 ]
 
-export default async function CoursePage({ params }: { params: Promise<{ id: string }> }) {
-  const { id } = await params
+export default function CoursePage({ params }: { params: { id: string } }) {
+  const { id } = params
   const [currentModule, setCurrentModule] = useState(3)
   const [isPlaying, setIsPlaying] = useState(false)
   const [showReflection, setShowReflection] = useState(false)

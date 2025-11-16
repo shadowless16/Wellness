@@ -36,8 +36,8 @@ const moodData: { [key: string]: MoodDetail } = {
   },
 }
 
-export default async function MoodDetailPage({ params }: { params: Promise<{ id: string }> }) {
-  const { id } = await params
+export default function MoodDetailPage({ params }: { params: { id: string } }) {
+  const { id } = params
   const mood = moodData[id] || moodData['1']
   const moodPercentage = (mood.mood / 10) * 100
 
@@ -46,13 +46,13 @@ export default async function MoodDetailPage({ params }: { params: Promise<{ id:
 
       <div className="max-w-3xl mx-auto px-6 py-12">
         {/* Header */}
-        <Link href="/user/mood" className="flex items-center gap-2 text-warm-teal hover:opacity-75 transition-opacity mb-8">
+        <Link href="/user/mood" className="flex items-center gap-2 text-[oklch(0.65_0.15_130)] hover:opacity-75 transition-opacity mb-8">
           <ArrowLeft className="w-4 h-4" />
           Back to Mood Tracker
         </Link>
 
         {/* Main card */}
-        <div className="p-12 rounded-[32px] bg-gradient-to-br from-warm-yellow/20 to-warm-yellow/5 border border-warm-yellow/20 shadow-soft-lg space-y-8">
+        <div className="p-12 rounded-[32px] bg-gradient-to-br from-[oklch(0.70_0.15_50)]/10 to-[oklch(0.70_0.15_50)]/5 border border-[oklch(0.70_0.15_50)]/20 shadow-soft-lg space-y-8">
           {/* Mood visualization */}
           <div className="text-center space-y-4">
             <div className="text-6xl">{moodEmojis[mood.mood]}</div>
@@ -67,7 +67,7 @@ export default async function MoodDetailPage({ params }: { params: Promise<{ id:
             <p className="text-sm text-muted-foreground">Mood Level</p>
             <div className="w-full h-3 rounded-full bg-white/50 overflow-hidden">
               <div
-                className="h-full bg-gradient-to-r from-warm-yellow to-warm-teal transition-all duration-500"
+                className="h-full bg-gradient-to-r from-[oklch(0.70_0.15_50)] to-[oklch(0.65_0.15_130)] transition-all duration-500"
                 style={{ width: `${moodPercentage}%` }}
               />
             </div>
@@ -78,12 +78,12 @@ export default async function MoodDetailPage({ params }: { params: Promise<{ id:
             {/* Triggers */}
             <div className="p-6 rounded-[24px] bg-white/50 space-y-3">
               <div className="flex items-center gap-2">
-                <Sparkles className="w-4 h-4 text-warm-yellow" />
+                <Sparkles className="w-4 h-4 text-[oklch(0.70_0.15_50)]" />
                 <p className="font-semibold text-foreground">Triggers</p>
               </div>
               <div className="flex flex-wrap gap-2">
                 {mood.triggers.map((trigger, idx) => (
-                  <span key={idx} className="px-3 py-1 rounded-full bg-warm-yellow/20 text-sm text-warm-yellow">
+                  <span key={idx} className="px-3 py-1 rounded-full bg-[oklch(0.70_0.15_50)]/20 text-sm text-[oklch(0.70_0.15_50)]">
                     {trigger}
                   </span>
                 ))}
@@ -93,12 +93,12 @@ export default async function MoodDetailPage({ params }: { params: Promise<{ id:
             {/* Activities */}
             <div className="p-6 rounded-[24px] bg-white/50 space-y-3">
               <div className="flex items-center gap-2">
-                <BookOpen className="w-4 h-4 text-warm-teal" />
+                <BookOpen className="w-4 h-4 text-[oklch(0.65_0.15_130)]" />
                 <p className="font-semibold text-foreground">Activities</p>
               </div>
               <div className="flex flex-wrap gap-2">
                 {mood.activities.map((activity, idx) => (
-                  <span key={idx} className="px-3 py-1 rounded-full bg-warm-teal/20 text-sm text-warm-teal">
+                  <span key={idx} className="px-3 py-1 rounded-full bg-[oklch(0.65_0.15_130)]/20 text-sm text-[oklch(0.65_0.15_130)]">
                     {activity}
                   </span>
                 ))}
@@ -114,10 +114,10 @@ export default async function MoodDetailPage({ params }: { params: Promise<{ id:
 
           {/* Actions */}
           <div className="flex gap-4 pt-6">
-            <button className="flex-1 px-6 py-3 rounded-[24px] bg-warm-teal text-white font-medium hover:opacity-90 transition-opacity">
+            <button className="flex-1 px-6 py-3 rounded-[24px] bg-[oklch(0.70_0.15_50)] text-white font-medium hover:bg-[oklch(0.65_0.18_50)] transition-colors">
               Edit Entry
             </button>
-            <button className="px-6 py-3 rounded-[24px] bg-white/50 text-foreground font-medium hover:bg-white transition-colors flex items-center gap-2">
+            <button className="px-6 py-3 rounded-[24px] bg-[oklch(0.70_0.15_50)]/10 text-[oklch(0.70_0.15_50)] font-medium hover:bg-[oklch(0.70_0.15_50)]/20 transition-colors flex items-center gap-2">
               <Share2 className="w-4 h-4" />
               Share
             </button>

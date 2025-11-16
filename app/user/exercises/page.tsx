@@ -22,7 +22,7 @@ const exercises: Exercise[] = [
     type: 'Breathing',
     description: 'Quick reset for your nervous system. Perfect for busy days.',
     difficulty: 'Easy',
-    color: 'from-warm-teal/30 to-warm-teal/10',
+    color: 'from-[oklch(0.65_0.15_130)]/15 to-[oklch(0.65_0.15_130)]/5',
     icon: '💨'
   },
   {
@@ -32,7 +32,7 @@ const exercises: Exercise[] = [
     type: 'Movement',
     description: 'Gentle stretching to awaken your body and mind.',
     difficulty: 'Easy',
-    color: 'from-warm-yellow/30 to-warm-yellow/10',
+    color: 'from-[oklch(0.70_0.15_50)]/15 to-[oklch(0.70_0.15_50)]/5',
     icon: '🌅'
   },
   {
@@ -42,7 +42,7 @@ const exercises: Exercise[] = [
     type: 'Meditation',
     description: 'Guided journey into calm awareness and inner peace.',
     difficulty: 'Intermediate',
-    color: 'from-warm-emergency/30 to-warm-emergency/10',
+    color: 'from-[oklch(0.70_0.15_50)]/10 to-[oklch(0.65_0.15_130)]/5',
     icon: '🧘'
   },
   {
@@ -52,7 +52,7 @@ const exercises: Exercise[] = [
     type: 'Relaxation',
     description: 'Progressive relaxation to prepare for restful sleep.',
     difficulty: 'Easy',
-    color: 'from-warm-beige/40 to-warm-beige/10',
+    color: 'from-[oklch(0.65_0.15_130)]/10 to-[oklch(0.70_0.15_50)]/5',
     icon: '✨'
   },
   {
@@ -62,7 +62,7 @@ const exercises: Exercise[] = [
     type: 'Awareness',
     description: 'Mindful exploration of physical sensations and tension.',
     difficulty: 'Intermediate',
-    color: 'from-warm-teal/20 to-warm-teal/5',
+    color: 'from-[oklch(0.65_0.15_130)]/15 to-[oklch(0.65_0.15_130)]/5',
     icon: '🔍'
   },
   {
@@ -72,7 +72,7 @@ const exercises: Exercise[] = [
     type: 'Meditation',
     description: 'Cultivate compassion for yourself and others.',
     difficulty: 'Intermediate',
-    color: 'from-warm-yellow/20 to-warm-yellow/5',
+    color: 'from-[oklch(0.70_0.15_50)]/15 to-[oklch(0.65_0.15_130)]/5',
     icon: '💝'
   },
 ]
@@ -89,7 +89,7 @@ export default function ExercisesPage() {
       <div className="max-w-6xl mx-auto px-6 py-12 space-y-8">
         {/* Header */}
         <div className="space-y-2">
-          <h1 className="text-4xl font-semibold bg-gradient-to-r from-[oklch(0.65_0.15_130)] to-[oklch(0.70_0.15_50)] bg-clip-text text-transparent">Guided Exercises</h1>
+          <h1 className="text-4xl font-semibold bg-gradient-to-r from-[oklch(0.70_0.15_50)] to-[oklch(0.65_0.15_130)] bg-clip-text text-transparent">Guided Exercises</h1>
           <p className="text-muted-foreground">Short, therapeutic practices for any moment of your day</p>
         </div>
 
@@ -99,7 +99,7 @@ export default function ExercisesPage() {
             <div
               key={exercise.id}
               onClick={() => handleExerciseClick(exercise.id)}
-              className={`p-6 rounded-[28px] bg-gradient-to-br ${exercise.color} border border-warm-beige/20 shadow-soft hover:shadow-soft-lg transition-all cursor-pointer group`}
+              className={`p-6 rounded-[28px] bg-gradient-to-br ${exercise.color} border border-[oklch(0.70_0.15_50)]/20 shadow-soft hover:shadow-soft-lg transition-all cursor-pointer group`}
             >
               <div className="flex justify-between items-start mb-3">
                 <div className="text-3xl">{exercise.icon}</div>
@@ -108,7 +108,7 @@ export default function ExercisesPage() {
                 </span>
               </div>
 
-              <h3 className="text-lg font-semibold text-foreground mb-1 group-hover:text-[oklch(0.65_0.15_130)] transition-colors">
+              <h3 className="text-lg font-semibold text-foreground mb-1 group-hover:text-[oklch(0.70_0.15_50)] transition-colors">
                 {exercise.title}
               </h3>
               <p className="text-xs text-muted-foreground mb-3">{exercise.type}</p>
@@ -118,7 +118,7 @@ export default function ExercisesPage() {
                 <span className="text-xs text-muted-foreground">{exercise.difficulty}</span>
                 <button onClick={(e) => {
                   e.stopPropagation()
-                }} className="p-2 rounded-full bg-white/50 text-foreground hover:bg-white transition-colors">
+                }} className="p-2 rounded-full bg-[oklch(0.70_0.15_50)]/10 text-[oklch(0.70_0.15_50)] hover:bg-[oklch(0.70_0.15_50)]/20 transition-colors">
                   <Play className="w-4 h-4" />
                 </button>
               </div>

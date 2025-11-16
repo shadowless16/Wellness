@@ -29,6 +29,20 @@ const allNavItems = [...primaryNavItems, ...secondaryNavItems]
 export default function UserNavbar() {
   const pathname = usePathname()
   const [showMore, setShowMore] = useState(false)
+  
+  // Find current page in secondary nav items
+  const currentSecondaryPage = secondaryNavItems.find(item => 
+    pathname === item.href || pathname.startsWith(item.href + '/')
+  )
+  
+  // Create dynamic nav items - replace Community with current page if on secondary page
+  const dynamicPrimaryNavItems = currentSecondaryPage 
+    ? primaryNavItems.map(item => 
+        item.href === '/user/community' 
+          ? { ...currentSecondaryPage, isCurrentPage: true }
+          : item
+      )
+    : primaryNavItems
 
   return (
     <nav className="sticky top-0 z-40 bg-white/70 backdrop-blur-md border-b border-warm-beige/20">
@@ -46,8 +60,10 @@ export default function UserNavbar() {
           </Link>
 
           <div className="hidden md:flex items-center gap-1">
-            {primaryNavItems.map((item) => {
-              const isActive = pathname === item.href || pathname.startsWith(item.href + '/')
+            {dynamicPrimaryNavItems.map((item) => {
+              const isActive = item.href === '/user' 
+                ? pathname === '/user'
+                : pathname === item.href || pathname.startsWith(item.href + '/')
               return (
                 <Link
                   key={item.href}
@@ -73,29 +89,29 @@ export default function UserNavbar() {
                 <MoreHorizontal className="w-5 h-5" />
                 <span className="text-xs font-medium">More</span>
               </button>
-              
-              {showMore && (
-                <div className="absolute top-full right-0 mt-2 w-48 bg-white rounded-[16px] shadow-lg border border-warm-beige/20 py-2 z-50">
-                  {secondaryNavItems.map((item) => {
-                    const isActive = pathname === item.href || pathname.startsWith(item.href + '/')
-                    return (
-                      <Link
-                        key={item.href}
-                        href={item.href}
-                        onClick={() => setShowMore(false)}
-                        className={`flex items-center gap-3 px-4 py-2 transition-colors ${
-                          isActive
-                            ? 'text-[oklch(0.65_0.15_130)] bg-gradient-to-r from-[oklch(0.65_0.15_130)]/10 to-[oklch(0.70_0.15_50)]/5'
-                            : 'text-muted-foreground hover:text-foreground hover:bg-warm-beige/10'
-                        }`}
-                      >
-                        {item.icon}
-                        <span className="text-sm">{item.label}</span>
-                      </Link>
-                    )
-                  })}
-                </div>
-              )}
+                
+                {showMore && (
+                  <div className="absolute top-full right-0 mt-2 w-48 bg-white rounded-[16px] shadow-lg border border-warm-beige/20 py-2 z-50">
+                    {secondaryNavItems.map((item) => {
+                      const isActive = pathname === item.href || pathname.startsWith(item.href + '/')
+                      return (
+                        <Link
+                          key={item.href}
+                          href={item.href}
+                          onClick={() => setShowMore(false)}
+                          className={`flex items-center gap-3 px-4 py-2 transition-colors ${
+                            isActive
+                              ? 'text-[oklch(0.65_0.15_130)] bg-gradient-to-r from-[oklch(0.65_0.15_130)]/10 to-[oklch(0.70_0.15_50)]/5'
+                              : 'text-muted-foreground hover:text-foreground hover:bg-warm-beige/10'
+                          }`}
+                        >
+                          {item.icon}
+                          <span className="text-sm">{item.label}</span>
+                        </Link>
+                      )
+                    })}
+                  </div>
+                )}
             </div>
           </div>
 

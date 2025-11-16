@@ -34,13 +34,13 @@ export default function MoodPage() {
       <div className="max-w-7xl mx-auto px-6 py-12 space-y-8">
         {/* Header */}
         <div className="space-y-2">
-          <h1 className="text-4xl font-semibold bg-gradient-to-r from-[oklch(0.65_0.15_130)] to-[oklch(0.70_0.15_50)] bg-clip-text text-transparent">Mood Tracker</h1>
+          <h1 className="text-4xl font-semibold bg-gradient-to-r from-[oklch(0.70_0.15_50)] to-[oklch(0.65_0.15_130)] bg-clip-text text-transparent">Mood Tracker</h1>
           <p className="text-muted-foreground">Track your emotional wellbeing over time</p>
         </div>
 
         {/* Stats cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="p-8 rounded-[28px] bg-gradient-to-br from-warm-yellow/30 to-warm-yellow/10 border border-warm-yellow/20 shadow-soft">
+          <div className="p-8 rounded-[28px] bg-gradient-to-br from-[oklch(0.70_0.15_50)]/15 to-[oklch(0.70_0.15_50)]/5 border border-[oklch(0.70_0.15_50)]/20 shadow-soft">
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm text-muted-foreground">Average Mood</p>
@@ -50,48 +50,48 @@ export default function MoodPage() {
             </div>
           </div>
 
-          <div className="p-8 rounded-[28px] bg-gradient-to-br from-warm-teal/30 to-warm-teal/10 border border-warm-teal/20 shadow-soft">
+          <div className="p-8 rounded-[28px] bg-gradient-to-br from-[oklch(0.65_0.15_130)]/15 to-[oklch(0.65_0.15_130)]/5 border border-[oklch(0.65_0.15_130)]/20 shadow-soft">
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm text-muted-foreground">Total Entries</p>
                 <p className="text-3xl font-semibold text-foreground mt-2">{moodHistory.length}</p>
               </div>
-              <BarChart3 className="w-8 h-8 text-warm-teal" />
+              <BarChart3 className="w-8 h-8 text-[oklch(0.65_0.15_130)]" />
             </div>
           </div>
 
-          <div className="p-8 rounded-[28px] bg-gradient-to-br from-warm-emergency/30 to-warm-emergency/10 border border-warm-emergency/20 shadow-soft">
+          <div className="p-8 rounded-[28px] bg-gradient-to-br from-[oklch(0.70_0.15_50)]/10 to-[oklch(0.65_0.15_130)]/5 border border-[oklch(0.70_0.15_50)]/20 shadow-soft">
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm text-muted-foreground">Best Streak</p>
                 <p className="text-3xl font-semibold text-foreground mt-2">6 days</p>
               </div>
-              <TrendingUp className="w-8 h-8 text-warm-emergency" />
+              <TrendingUp className="w-8 h-8 text-[oklch(0.70_0.15_50)]" />
             </div>
           </div>
         </div>
 
         {/* Mood history */}
         <div className="space-y-4">
-          <h2 className="text-xl font-semibold text-[oklch(0.65_0.15_130)]">Recent Mood Entries</h2>
+          <h2 className="text-xl font-semibold text-[oklch(0.70_0.15_50)]">Recent Mood Entries</h2>
           <div className="space-y-3">
             {moodHistory.map((entry, idx) => (
               <div
                 key={idx}
                 onClick={() => handleMoodClick(idx)}
-                className="p-6 rounded-[24px] bg-white border border-warm-beige/20 shadow-soft hover:shadow-soft-lg transition-all cursor-pointer group"
+                className="p-6 rounded-[24px] bg-white border border-[oklch(0.70_0.15_50)]/20 shadow-soft hover:shadow-soft-lg hover:bg-[oklch(0.70_0.15_50)]/5 transition-all cursor-pointer group"
               >
                 <div className="flex items-center justify-between">
                   <div className="flex-1">
                     <p className="text-sm text-muted-foreground">{entry.date}</p>
-                    <p className="text-foreground font-medium mt-1 group-hover:text-[oklch(0.65_0.15_130)] transition-colors">{entry.note}</p>
+                    <p className="text-foreground font-medium mt-1 group-hover:text-[oklch(0.70_0.15_50)] transition-colors">{entry.note}</p>
                   </div>
                   <div className="flex items-center gap-3">
                     <div className="text-right">
                       <p className="text-2xl">{moodEmojis[entry.mood]}</p>
                       <p className="text-xs text-muted-foreground">{entry.mood}/10</p>
                     </div>
-                    <div className="w-1 h-12 rounded-full bg-gradient-to-b from-[oklch(0.70_0.15_50)] to-[oklch(0.65_0.15_130)] opacity-50" />
+                    <div className="w-1 h-12 rounded-full bg-gradient-to-b from-[oklch(0.70_0.15_50)] to-[oklch(0.65_0.15_130)]" />
                   </div>
                 </div>
               </div>

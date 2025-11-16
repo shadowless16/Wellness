@@ -9,8 +9,8 @@ const meditations = [
     category: 'Mindfulness',
     instructor: 'Sarah Chen',
     description: 'Start your day with calm focus and intention',
-    color: 'from-warm-teal/20 to-warm-teal/5',
-    bgColor: 'bg-warm-teal/5'
+    color: 'from-[oklch(0.65_0.15_130)]/15 to-[oklch(0.65_0.15_130)]/5',
+    bgColor: 'bg-[oklch(0.65_0.15_130)]/5'
   },
   {
     id: 2,
@@ -19,8 +19,8 @@ const meditations = [
     category: 'Breathing',
     instructor: 'Marcus Johnson',
     description: 'Calm your nervous system with guided breathing',
-    color: 'from-warm-yellow/20 to-warm-yellow/5',
-    bgColor: 'bg-warm-yellow/5'
+    color: 'from-[oklch(0.70_0.15_50)]/15 to-[oklch(0.70_0.15_50)]/5',
+    bgColor: 'bg-[oklch(0.70_0.15_50)]/5'
   },
   {
     id: 3,
@@ -29,8 +29,8 @@ const meditations = [
     category: 'Sleep',
     instructor: 'Elena Rodriguez',
     description: 'Drift into peaceful sleep with this calming story',
-    color: 'from-warm-coral/20 to-warm-coral/5',
-    bgColor: 'bg-warm-coral/5'
+    color: 'from-[oklch(0.70_0.15_50)]/10 to-[oklch(0.65_0.15_130)]/5',
+    bgColor: 'bg-[oklch(0.70_0.15_50)]/5'
   },
   {
     id: 4,
@@ -39,8 +39,8 @@ const meditations = [
     category: 'Relaxation',
     instructor: 'Dr. James Park',
     description: 'Release tension with a guided body awareness session',
-    color: 'from-warm-beige/40 to-warm-beige/10',
-    bgColor: 'bg-warm-beige/10'
+    color: 'from-[oklch(0.65_0.15_130)]/10 to-[oklch(0.70_0.15_50)]/5',
+    bgColor: 'bg-[oklch(0.65_0.15_130)]/5'
   },
   {
     id: 5,
@@ -49,8 +49,8 @@ const meditations = [
     category: 'Compassion',
     instructor: 'Priya Sharma',
     description: 'Cultivate inner compassion and positive emotions',
-    color: 'from-warm-coral/20 to-warm-coral/5',
-    bgColor: 'bg-warm-coral/5'
+    color: 'from-[oklch(0.70_0.15_50)]/15 to-[oklch(0.65_0.15_130)]/5',
+    bgColor: 'bg-[oklch(0.70_0.15_50)]/5'
   },
   {
     id: 6,
@@ -59,8 +59,8 @@ const meditations = [
     category: 'Quick Resets',
     instructor: 'Michael Torres',
     description: 'Quick reset between meetings and tasks',
-    color: 'from-warm-teal/20 to-warm-teal/5',
-    bgColor: 'bg-warm-teal/5'
+    color: 'from-[oklch(0.65_0.15_130)]/15 to-[oklch(0.70_0.15_50)]/5',
+    bgColor: 'bg-[oklch(0.65_0.15_130)]/5'
   },
 ]
 
@@ -71,7 +71,7 @@ export default function MeditationPage() {
       <div className="max-w-6xl mx-auto px-4 md:px-6">
         {/* Header */}
         <div className="mb-12">
-          <h1 className="text-4xl font-light mb-3 bg-gradient-to-r from-[oklch(0.65_0.15_130)] to-[oklch(0.70_0.15_50)] bg-clip-text text-transparent">Guided Meditation</h1>
+          <h1 className="text-4xl font-light mb-3 bg-gradient-to-r from-[oklch(0.70_0.15_50)] to-[oklch(0.65_0.15_130)] bg-clip-text text-transparent">Guided Meditation</h1>
           <p className="text-muted-foreground text-lg">Find peace with our collection of guided sessions</p>
         </div>
 
@@ -82,8 +82,8 @@ export default function MeditationPage() {
               key={filter}
               className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
                 filter === 'All'
-                  ? 'bg-gradient-to-r from-[oklch(0.65_0.15_130)]/15 to-[oklch(0.70_0.15_50)]/10 text-[oklch(0.65_0.15_130)]'
-                  : 'bg-warm-beige/10 text-muted-foreground hover:bg-gradient-to-r hover:from-[oklch(0.65_0.15_130)]/5 hover:to-[oklch(0.70_0.15_50)]/5'
+                  ? 'bg-gradient-to-r from-[oklch(0.70_0.15_50)]/15 to-[oklch(0.65_0.15_130)]/10 text-[oklch(0.70_0.15_50)]'
+                  : 'bg-[oklch(0.70_0.15_50)]/5 text-muted-foreground hover:bg-[oklch(0.70_0.15_50)]/10'
               }`}
             >
               {filter}
@@ -115,13 +115,13 @@ export default function MeditationPage() {
                 <p className="text-sm text-muted-foreground mb-4 flex-grow">{meditation.description}</p>
 
                 {/* Footer */}
-                <div className="flex items-center justify-between pt-4 border-t border-warm-beige/20">
+                <div className="flex items-center justify-between pt-4 border-t border-[oklch(0.70_0.15_50)]/20">
                   <div className="flex items-center gap-2 text-sm text-muted-foreground">
                     <Users className="w-4 h-4" />
                     <span>{meditation.instructor}</span>
                   </div>
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[oklch(0.70_0.15_50)]/40 to-[oklch(0.65_0.15_130)]/25 flex items-center justify-center hover:from-[oklch(0.70_0.15_50)]/60 hover:to-[oklch(0.65_0.15_130)]/40 transition-colors border border-[oklch(0.70_0.15_50)]/30">
-                    <Play className="w-5 h-5 text-[oklch(0.65_0.15_130)] fill-[oklch(0.65_0.15_130)]" />
+                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[oklch(0.70_0.15_50)]/30 to-[oklch(0.65_0.15_130)]/20 flex items-center justify-center hover:from-[oklch(0.70_0.15_50)]/40 hover:to-[oklch(0.65_0.15_130)]/30 transition-colors border border-[oklch(0.70_0.15_50)]/30">
+                    <Play className="w-5 h-5 text-[oklch(0.70_0.15_50)]" />
                   </div>
                 </div>
               </div>
