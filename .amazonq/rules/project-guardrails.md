@@ -46,7 +46,8 @@ components/
 #### Styling
 - Use Tailwind CSS classes only
 - Custom CSS variables defined in globals.css
-- Consistent color scheme: warm-teal, warm-beige
+- **Brand Colors**: `oklch(0.70_0.15_50)` (orange), `oklch(0.65_0.15_130)` (teal)
+- Apply colors consistently across pages, not per dynamic content
 - Role-specific colors: red-500 (admin), blue-500 (corporate)
 
 ### 4. Role-Based Development (CRITICAL)
@@ -67,6 +68,9 @@ components/
 - Use route groups: `(role)`
 - Server components by default
 - Client components only when needed
+- **CRITICAL**: Dynamic routes must use `params: Promise<{ id: string }>`
+- Always `await params` before accessing properties
+- Separate interactive logic into client components
 - Proper loading.tsx and error.tsx files
 
 #### Performance:
@@ -97,6 +101,8 @@ components/
 - ❌ Create verbose implementations
 - ❌ Ignore TypeScript errors
 - ❌ Use outdated Next.js patterns
+- ❌ Access params directly without await in dynamic routes
+- ❌ Use dynamic colors that vary per content item
 
 ### 8. Required Patterns (ALWAYS USE)
 
@@ -108,6 +114,15 @@ import { getCurrentUser, UserRole } from '@/lib/auth'
 #### Role Configuration:
 ```typescript
 import { getRoleConfig } from '@/config/roles'
+```
+
+#### Dynamic Routes:
+```typescript
+// Server Component with async params
+export default async function Page({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params
+  return <div>{id}</div>
+}
 ```
 
 #### Component Props:

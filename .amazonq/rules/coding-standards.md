@@ -10,6 +10,9 @@
 ### 2. Next.js 16 + React 19 Standards
 - Use App Router route groups: `(user)`, `(coach)`, `(admin)`, `(corporate)`
 - Server components by default, client only when needed
+- **CRITICAL**: Dynamic routes must use async params: `params: Promise<{ id: string }>`
+- Always `await params` before accessing properties
+- Separate interactive logic into client components when using hooks
 - Use React 19 features appropriately
 - Follow Next.js 16 best practices
 
@@ -21,17 +24,23 @@
 
 ### 4. Component Structure
 ```typescript
-'use client' // Only if needed
+// Server Component (default)
+export default async function PageName({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params
+  return <div>Content</div>
+}
 
-import { ComponentProps } from './types' // Local imports first
-import { ExternalLib } from 'external-lib' // External imports after
+// Client Component (when hooks needed)
+'use client'
+
+import { useState } from 'react'
 
 interface Props {
   // Always define props interface
 }
 
 export default function ComponentName({ prop }: Props) {
-  // Minimal, focused implementation
+  const [state, setState] = useState()
   return <div>Content</div>
 }
 ```
@@ -44,7 +53,9 @@ export default function ComponentName({ prop }: Props) {
 
 ### 6. Styling Standards
 - Tailwind CSS ONLY - no custom CSS except in globals.css
-- Use design system colors: warm-teal, warm-beige
+- **PRIMARY COLORS**: `oklch(0.70_0.15_50)` (orange), `oklch(0.65_0.15_130)` (teal)
+- Apply colors consistently across pages, not dynamically per item
+- Use opacity levels: 5%, 10%, 15%, 20%, 30%, 40%, 100%
 - Role colors: red-500 (admin), blue-500 (corporate)
 - Consistent spacing and typography
 
@@ -77,3 +88,6 @@ import { Heart } from 'lucide-react'
 - [ ] No unused code
 - [ ] Follows Next.js 16 patterns
 - [ ] Respects multi-role architecture
+- [ ] Dynamic routes use `await params`
+- [ ] Consistent orange/teal colors applied
+- [ ] Server/client components properly separated
