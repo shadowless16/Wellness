@@ -12,10 +12,10 @@
 ### 1. Multi-Role Structure (MANDATORY)
 ```
 app/
-├── (user)/           # Individual wellness users
-├── (coach)/          # Coaches/trainers  
-├── (admin)/          # Platform administrators
-├── (corporate)/      # Corporate clients
+├── user/           # Individual wellness users
+├── coach/          # Coaches/trainers  
+├── admin/          # Platform administrators
+├── corporate/      # Corporate clients
 └── auth/             # Shared authentication
 ```
 

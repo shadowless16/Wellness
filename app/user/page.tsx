@@ -117,6 +117,18 @@ export default function WellnessDashboard() {
               <p className="text-3xl font-semibold text-foreground">12</p>
               <p className="text-xs text-muted-foreground mt-2">Days of commitment</p>
             </div>
+            
+            {/* New Achievement Card */}
+            <div className="p-6 rounded-[24px] bg-gradient-to-br from-[oklch(0.70_0.15_50)]/20 to-[oklch(0.65_0.15_130)]/10 border border-[oklch(0.70_0.15_50)]/30 shadow-soft hover:shadow-soft-lg transition-shadow">
+              <div className="flex items-center justify-between mb-2">
+                <p className="text-sm text-muted-foreground">Certificates Earned</p>
+                <div className="flex items-center gap-1">
+                  <span className="text-xs bg-[oklch(0.70_0.15_50)] text-white px-2 py-1 rounded-full">New!</span>
+                </div>
+              </div>
+              <p className="text-3xl font-semibold text-foreground">1</p>
+              <p className="text-xs text-muted-foreground mt-2">CBT for Anxiety completed</p>
+            </div>
           </div>
         </div>
 
